@@ -1,0 +1,25 @@
+import { useEffect } from 'react';
+import { useTheme } from '@jpmorganchase/uitk-core';
+
+export const useBackgroundColour = (): void => {
+  const [theme] = useTheme();
+  useEffect(() => {
+    if (!theme) {
+      return;
+    }
+    const backgroundColour = theme.getCharacteristicValue(
+      'container',
+      'background-medium',
+    );
+    if (backgroundColour) {
+      document.body.style.backgroundColor = backgroundColour;
+      const themeColor = document.createElement('meta');
+      themeColor.name = 'theme-color';
+      themeColor.content = '#ff0000';
+      document.head.appendChild(themeColor);
+      if (document.body.parentElement) {
+        document.body.parentElement.style.backgroundColor = backgroundColour;
+      }
+    }
+  });
+};
