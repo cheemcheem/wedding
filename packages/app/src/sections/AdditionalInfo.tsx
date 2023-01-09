@@ -1,5 +1,12 @@
-import { Card, Panel, StackLayout } from '@jpmorganchase/uitk-core';
-import { H2, H3, Link, P, Span } from '@jpmorganchase/uitk-lab';
+import {
+  Card,
+  Panel,
+  StackLayout,
+  H2,
+  H3,
+  Text,
+} from '@jpmorganchase/uitk-core';
+import { Link } from '@jpmorganchase/uitk-lab';
 import React from 'react';
 
 export const AdditionalInfo: React.FC = () => {
@@ -14,6 +21,7 @@ export const AdditionalInfo: React.FC = () => {
       - Contact us (anonymous email address)
     Remove entire site from robots.txt
   */
+
   return (
     <Panel>
       <StackLayout>
@@ -27,13 +35,13 @@ export const AdditionalInfo: React.FC = () => {
           <H2 styleAs="h1">Gifts</H2>
           <Card>
             <H3 styleAs="h2">Please no gifts</H3>
-            <Span styleAs="h3">Your presence is the only gift we need!</Span>
-            <P>
-              <Span>Consider donating instead to </Span>
+            <Text styleAs="h3">Your presence is the only gift we need!</Text>
+            <Text>
+              <Text>Consider donating instead to </Text>
               <Link href="https://www.wateraid.org/uk" target="_blank">
                 WaterAid
               </Link>
-            </P>
+            </Text>
           </Card>
         </StackLayout>
       </StackLayout>

@@ -1,10 +1,10 @@
-import { ToolkitProvider } from '@jpmorganchase/uitk-core';
+import { Mode, ToolkitProvider } from '@jpmorganchase/uitk-core';
 import React from 'react';
 
 export const ThemeProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = React.useState<Mode>('light');
 
   React.useEffect(() => {
     const themeMediaQuery = '(prefers-color-scheme: dark)';
@@ -21,7 +21,7 @@ export const ThemeProvider: React.FC<React.PropsWithChildren> = ({
     };
   });
   return (
-    <ToolkitProvider density="low" theme={theme}>
+    <ToolkitProvider density="low" mode={theme}>
       {children}
     </ToolkitProvider>
   );

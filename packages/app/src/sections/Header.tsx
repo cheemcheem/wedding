@@ -1,10 +1,9 @@
-import { Panel, FlowLayout } from '@jpmorganchase/uitk-core';
-import { Span } from '@jpmorganchase/uitk-lab';
+import { Panel, FlowLayout, Text } from '@jpmorganchase/uitk-core';
 import React from 'react';
 
-const HeaderSpan = ({ children }: { children: string }) => {
+const HeaderText = ({ children }: { children: string }) => {
   return (
-    <Span
+    <Text
       style={{
         fontFamily: "'Dancing Script', cursive",
         fontSize: '4rem',
@@ -19,9 +18,9 @@ export const Header: React.FC = () => {
   return (
     <Panel>
       <FlowLayout align="center" justify="center" gap={0}>
-        <HeaderSpan>Katharine &</HeaderSpan>
-        <HeaderSpan>Kathan's</HeaderSpan>
-        <HeaderSpan>Wedding</HeaderSpan>
+        <HeaderText>Katharine &</HeaderText>
+        <HeaderText>Kathan's</HeaderText>
+        <HeaderText>Wedding</HeaderText>
       </FlowLayout>
     </Panel>
   );

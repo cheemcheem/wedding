@@ -6,7 +6,6 @@ import {
   ButtonProps,
   FlowLayout,
 } from '@jpmorganchase/uitk-core';
-import { H2, P, Link } from '@jpmorganchase/uitk-lab';
 import download from 'js-file-download';
 import { createEvent } from 'ics';
 import React from 'react';
@@ -38,7 +37,7 @@ type ResponseButtonProps = Pick<
 const ResponseButton: React.FC<ResponseButtonProps> = Button;
 const downloadCalendar = () =>
   download(value || '', 'K&K Wedding Day', 'text/calendar');
-export const EventDetails: React.FC = () => {
+export const Details: React.FC = () => {
   //    - (in order:) what/when/where/food/attendance button
 
   /* 

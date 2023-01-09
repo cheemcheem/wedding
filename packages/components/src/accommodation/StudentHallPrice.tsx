@@ -1,4 +1,4 @@
-import { FlowLayout } from '@jpmorganchase/uitk-core';
+import { FlexLayout, FlowLayout } from '@jpmorganchase/uitk-core';
 import { Icon } from '@jpmorganchase/uitk-icons';
 import { Metric, MetricHeader, MetricContent } from '@jpmorganchase/uitk-lab';
 import React from 'react';
@@ -24,7 +24,7 @@ export const StudentHallPrice: React.FC<StudentHallPriceProps> = ({
     ? `${discountPercent}% discount available using code WED23`
     : 'No discount available';
   return (
-    <FlowLayout justify="space-between">
+    <FlowLayout justify="space-between" wrap={false}>
       <Metric
         size="small"
         align="left"
@@ -33,9 +33,9 @@ export const StudentHallPrice: React.FC<StudentHallPriceProps> = ({
         <MetricHeader {...{ subtitle, title }} />
         <MetricContent {...{ subvalue, value }} />
       </Metric>
-      <FlowLayout align="center" gap={0}>
+      <FlowLayout align="center" justify="center" gap={0}>
         {icon.map((Icon, index) => (
-          <Icon key={index} size={'large'} />
+          <Icon key={index} size={2} />
         ))}
       </FlowLayout>
     </FlowLayout>

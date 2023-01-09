@@ -1,7 +1,7 @@
-import React from 'react';
-import { Card, Panel, StackLayout } from '@jpmorganchase/uitk-core';
+import React, { useMemo, useRef } from 'react';
+import { Card, Panel, StackLayout, H2, H3 } from '@jpmorganchase/uitk-core';
 import { StudentHalls, StudentHall, HotelListItem } from '@wedding/components';
-import { H2, H3, List } from '@jpmorganchase/uitk-lab';
+import { List } from '@jpmorganchase/uitk-lab';
 import { UserGroupSolidIcon, UserSolidIcon } from '@jpmorganchase/uitk-icons';
 
 export const Accommodation: React.FC = () => {
@@ -9,77 +9,82 @@ export const Accommodation: React.FC = () => {
     <Panel>
       <StackLayout>
         <StackLayout>
-          <H2 styleAs="h1">St Andrews Accommodation</H2>
+          {/* <H2 styleAs="h1">St Andrews Accommodation</H2> */}
           <Card>
-            <StackLayout gap={3}>
+            <StackLayout gap={2}>
               <H3 styleAs="h2">St Andrews University Halls</H3>
-              <StudentHalls>
-                <StudentHall
-                  email="agnes.blackadder@st-andrews.ac.uk"
-                  name="Agnes Blackadder Hall (B&B ensuite double beds)"
-                  prices={[
-                    {
-                      discountPercent: 10,
-                      icon: [UserSolidIcon],
-                      price: 65,
-                      title: 'Single Occupancy',
-                    },
-                    {
-                      discountPercent: 10,
-                      icon: [UserGroupSolidIcon],
-                      price: 85,
-                      title: 'Double Occupancy',
-                    },
-                    {
-                      icon: [UserGroupSolidIcon, UserGroupSolidIcon],
-                      price: 120,
-                      title: 'Twin (family) room',
-                    },
-                  ]}
-                  telephone="01334467000"
-                  website="https://ace.st-andrews.ac.uk/accommodation/david-russell-apartments"
-                />
-                <StudentHall
-                  email="drareception@st-andrews.ac.uk"
-                  name="David Russell Apartments (B&B ensuite double beds)"
-                  prices={[
-                    {
-                      discountPercent: 10,
-                      icon: [UserSolidIcon],
-                      price: 65,
-                      title: 'Single Occupancy',
-                    },
-                    {
-                      discountPercent: 10,
-                      icon: [UserGroupSolidIcon],
-                      price: 85,
-                      title: 'Double Occupancy',
-                    },
-                  ]}
-                  telephone="01334467100"
-                  website="https://ace.st-andrews.ac.uk/accommodation/david-russell-apartments"
-                />
-                <StudentHall
-                  email="drareception@st-andrews.ac.uk"
-                  name="David Russell Apartments (self-catered ensuite double beds)"
-                  prices={[
-                    {
-                      icon: [
-                        UserGroupSolidIcon,
-                        UserGroupSolidIcon,
-                        UserGroupSolidIcon,
-                        UserGroupSolidIcon,
-                        UserGroupSolidIcon,
-                      ],
-                      subtitle: 'Apartment of 5 bedrooms for 2 nights',
-                      price: 365,
-                      title: 'Occupancy for 5 to 10 people',
-                    },
-                  ]}
-                  telephone="01334467100"
-                  website="https://ace.st-andrews.ac.uk/accommodation/david-russell-apartments"
-                />
-              </StudentHalls>
+              <StackLayout
+                style={{
+                  width:
+                    'calc(100% + 2 * var(--uitkCard-padding, calc(var(--uitk-size-unit) * 3)))',
+                  marginLeft:
+                    'calc(-1 * var(--uitkCard-padding, calc(var(--uitk-size-unit) * 3)))',
+                  marginBottom:
+                    'calc(-1 * var(--uitkCard-padding, calc(var(--uitk-size-unit) * 3)))',
+                }}
+              >
+                <StudentHalls>
+                  <StudentHall
+                    email="agnes.blackadder@st-andrews.ac.uk"
+                    name="Agnes Blackadder Hall"
+                    type="B&B ensuite double beds"
+                    prices={[
+                      {
+                        discountPercent: 10,
+                        icon: [UserSolidIcon],
+                        price: 65,
+                        title: 'Single Occupancy',
+                      },
+                      {
+                        discountPercent: 10,
+                        icon: [UserGroupSolidIcon],
+                        price: 85,
+                        title: 'Double Occupancy',
+                      },
+                      {
+                        icon: [UserGroupSolidIcon, UserGroupSolidIcon],
+                        price: 120,
+                        title: 'Twin (family) room',
+                      },
+                    ]}
+                    telephone="01334467000"
+                    website="https://ace.st-andrews.ac.uk/accommodation/david-russell-apartments"
+                  />
+                  <StudentHall
+                    email="drareception@st-andrews.ac.uk"
+                    name="David Russell Apartments"
+                    type="B&B ensuite double beds"
+                    prices={[
+                      {
+                        discountPercent: 10,
+                        icon: [UserSolidIcon],
+                        price: 65,
+                        title: 'Single Occupancy',
+                      },
+                      {
+                        discountPercent: 10,
+                        icon: [UserGroupSolidIcon],
+                        price: 85,
+                        title: 'Double Occupancy',
+                      },
+                      {
+                        icon: [
+                          UserGroupSolidIcon,
+                          UserGroupSolidIcon,
+                          UserGroupSolidIcon,
+                          UserGroupSolidIcon,
+                          UserGroupSolidIcon,
+                        ],
+                        subtitle: 'Apartment of 5 bedrooms for 2 nights',
+                        price: 365,
+                        title: 'Occupancy for 5 to 10 people',
+                      },
+                    ]}
+                    telephone="01334467100"
+                    website="https://ace.st-andrews.ac.uk/accommodation/david-russell-apartments"
+                  />
+                </StudentHalls>
+              </StackLayout>
             </StackLayout>
           </Card>
           <Card>
@@ -87,7 +92,7 @@ export const Accommodation: React.FC = () => {
               <H3 styleAs="h2">St Andrews Hotels</H3>
               {/* TODO: If time, add sorting for street or closest to ceremony, reception, pub */}
               {/* prettier-ignore */}
-              <List >
+              <List borderless  displayedItemCount={-1} >
                   <HotelListItem  name="Ardgowan Hotel"                             url="https://www.ardgowanhotel.co.uk"/>
                   <HotelListItem  name="Rusacks St Andrews"                         url="https://marineandlawn.com/rusacksstandrews"/>
                   <HotelListItem  name="The Old Course Hotel"                       url="https://www.oldcoursehotel.co.uk"/>

@@ -1,15 +1,17 @@
 import { useEffect } from 'react';
-import { useTheme } from '@jpmorganchase/uitk-core';
+import { useTheme, getCharacteristicValue } from '@jpmorganchase/uitk-core';
 
 export const useBackgroundColour = (): void => {
-  const [theme] = useTheme();
+  const { theme, mode } = useTheme();
+  console.log({ theme, mode });
   useEffect(() => {
     if (!theme) {
       return;
     }
-    const backgroundColour = theme.getCharacteristicValue(
+    const backgroundColour = getCharacteristicValue(
+      theme,
       'container',
-      'background-medium',
+      'primary-background',
     );
     if (backgroundColour) {
       document.body.style.backgroundColor = backgroundColour;
