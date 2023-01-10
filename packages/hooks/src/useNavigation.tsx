@@ -1,21 +1,23 @@
-import { Panel } from '@jpmorganchase/uitk-core';
-import { useMatchMediaQuery } from '@wedding/hooks';
-import { Dropdown, Tabstrip } from '@jpmorganchase/uitk-lab';
 import React, { useState } from 'react';
+import { useSaveState } from '@wedding/hooks';
+import { useSmallMode } from './useSmallMode';
+import { Panel } from '@jpmorganchase/uitk-core';
+import { Dropdown, Tabstrip } from '@jpmorganchase/uitk-lab';
 
-export type NavigationProps = {
+type NavigationProps = {
   locations: Map<string, React.FC>;
   active: string;
   setActive: (location: string) => void;
 };
-export const Navigation: React.FC<NavigationProps> = ({
+
+const Navigation: React.FC<NavigationProps> = ({
   active,
   locations,
   setActive,
 }) => {
   const [open, setOpen] = useState(false);
   const keys = Array.from(locations.keys());
-  const smallMode = useMatchMediaQuery('(max-width: 40rem)');
+  const smallMode = useSmallMode();
 
   return smallMode ? (
     <Panel variant="secondary" style={{ padding: 0, width: '100%' }}>
@@ -53,4 +55,31 @@ export const Navigation: React.FC<NavigationProps> = ({
       overflowMenu={false}
     />
   );
+};
+
+type NavigationAndActive = {
+  Navigation: React.FC;
+  Active: React.FC;
+};
+
+export const useNavigation = (
+  tabs: Map<string, React.FC>,
+): NavigationAndActive => {
+  const [activeTab, onActiveChange] = useSaveState<string>(
+    'wedding-app-active-tab-dev=string',
+    'Details',
+  );
+
+  const value: NavigationProps = {
+    active: activeTab,
+    locations: tabs,
+    setActive: onActiveChange,
+  };
+
+  const ActiveComponent = tabs.get(activeTab) || (() => null);
+
+  return {
+    Navigation: () => <Navigation {...value} />,
+    Active: () => <ActiveComponent />,
+  };
 };
