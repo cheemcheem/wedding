@@ -18,8 +18,12 @@ export const Header: React.FC = () => {
   return (
     <Panel>
       <FlowLayout align="center" justify="center" gap={0}>
-        <HeaderText>Katharine &</HeaderText>
+        <HeaderText>Katharine</HeaderText>
+        <HeaderText>&nbsp;</HeaderText>
+        <HeaderText>&</HeaderText>
+        <HeaderText>&nbsp;</HeaderText>
         <HeaderText>Kathan's</HeaderText>
+        <HeaderText>&nbsp;</HeaderText>
         <HeaderText>Wedding</HeaderText>
       </FlowLayout>
     </Panel>

@@ -10,7 +10,8 @@ import {
   MessageSolidIcon,
 } from '@jpmorganchase/uitk-icons';
 import { Link } from '@jpmorganchase/uitk-lab';
-import React from 'react';
+import React, { useContext } from 'react';
+import { PrintContext } from '../PrintContext';
 
 export interface StudentHallContactDetailsProps {
   email: string;
@@ -21,6 +22,7 @@ export interface StudentHallContactDetailsProps {
 export const StudentHallContactDetails: React.FC<
   StudentHallContactDetailsProps
 > = ({ email, telephone, website }) => {
+  const { printMode } = useContext(PrintContext);
   return (
     <StackLayout gap={3}>
       <StackLayout gap={1}>
@@ -52,6 +54,7 @@ export const StudentHallContactDetails: React.FC<
               website
             </Link>
           </Text>
+          {printMode && <br />}
         </FlowLayout>
       </StackLayout>
     </StackLayout>

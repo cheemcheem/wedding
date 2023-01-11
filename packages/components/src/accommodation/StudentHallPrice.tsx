@@ -1,7 +1,8 @@
 import { FlexLayout, FlowLayout } from '@jpmorganchase/uitk-core';
 import { Icon } from '@jpmorganchase/uitk-icons';
 import { Metric, MetricHeader, MetricContent } from '@jpmorganchase/uitk-lab';
-import React from 'react';
+import React, { useContext } from 'react';
+import { PrintContext } from '../PrintContext';
 
 export interface StudentHallPriceProps {
   discountPercent?: number;
@@ -23,6 +24,7 @@ export const StudentHallPrice: React.FC<StudentHallPriceProps> = ({
   const subvalue = discountPercent
     ? `${discountPercent}% discount available using code WED23`
     : 'No discount available';
+  const { printMode } = useContext(PrintContext);
   return (
     <FlowLayout justify="space-between" wrap={false}>
       <Metric
@@ -38,6 +40,7 @@ export const StudentHallPrice: React.FC<StudentHallPriceProps> = ({
           <Icon key={index} size={2} />
         ))}
       </FlowLayout>
+      {printMode && <br />}
     </FlowLayout>
   );
 };

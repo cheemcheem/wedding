@@ -2,7 +2,6 @@ import {
   FlowLayout,
   H3,
   H4,
-  Label,
   StackLayout,
   Text,
 } from '@jpmorganchase/uitk-core';
@@ -11,7 +10,8 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from '@jpmorganchase/uitk-lab';
-import React from 'react';
+import React, { useContext } from 'react';
+import { PrintContext } from '../PrintContext';
 import {
   StudentHallContactDetails,
   StudentHallContactDetailsProps,
@@ -32,13 +32,16 @@ export const StudentHall: React.FC<StudentHallProps> = ({
   telephone,
   website,
 }) => {
+  const { printMode } = useContext(PrintContext);
   return (
-    <AccordionSection>
-      <AccordionSummary>
-        <FlowLayout align="center" style={{ height: '100%' }}>
-          <Text maxRows={1}>{name}</Text>
-        </FlowLayout>
-      </AccordionSummary>
+    <AccordionSection expanded={printMode}>
+      {printMode || (
+        <AccordionSummary>
+          <FlowLayout align="center" style={{ height: '100%' }}>
+            <Text maxRows={1}>{name}</Text>
+          </FlowLayout>
+        </AccordionSummary>
+      )}
       <AccordionDetails>
         <StackLayout
           style={{

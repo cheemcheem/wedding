@@ -1,4 +1,5 @@
 import {
+  Button,
   FlowLayout,
   StackLayout,
   ToolkitProvider,
@@ -9,12 +10,12 @@ import {
   useBackgroundColour,
   useNavigation,
   useSmallMode,
+  usePrint,
 } from '@wedding/hooks';
 import { Accommodation } from './sections/Accommodation';
 import { AdditionalInfo } from './sections/AdditionalInfo';
 import { Details } from './sections/Details';
 import { Photos } from './sections/Photos';
-// TODO: print button at bottom of pages
 
 const tabs = new Map([
   ['Details', Details],
@@ -23,10 +24,16 @@ const tabs = new Map([
   ['Photos', Photos],
 ]);
 
+const printTabs = new Map(
+  Array.from(tabs).filter(([name]) => name !== 'Photos'),
+);
+
 function App(): JSX.Element {
   useBackgroundColour();
   const { Active, Navigation } = useNavigation(tabs);
+  const print = usePrint(printTabs);
   const width = useSmallMode() ? '100vw' : '40rem';
+
   return (
     <FlowLayout justify="center">
       <StackLayout style={{ width }} gap={0}>
@@ -37,6 +44,7 @@ function App(): JSX.Element {
         <ToolkitProvider density="low">
           <Active />
         </ToolkitProvider>
+        <Button onClick={print}>PRINT</Button>
       </StackLayout>
     </FlowLayout>
   );
