@@ -1,9 +1,4 @@
-import {
-  Text,
-  StackLayout,
-  FlowLayout,
-  FlexLayout,
-} from '@jpmorganchase/uitk-core';
+import { Text, StackLayout, FlowLayout } from '@jpmorganchase/uitk-core';
 import {
   CallSolidIcon,
   GlobeSolidIcon,

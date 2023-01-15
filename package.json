@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@jpmorganchase/uitk-core": "^0.9.0",
+    "@jpmorganchase/uitk-grid": "^0.4.0",
     "@jpmorganchase/uitk-icons": "^0.7.0",
     "@jpmorganchase/uitk-lab": "^0.9.0",
     "@jpmorganchase/uitk-theme": "^0.7.0",

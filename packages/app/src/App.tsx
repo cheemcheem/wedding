@@ -1,8 +1,10 @@
 import {
   Button,
   FlowLayout,
+  Panel,
   StackLayout,
   ToolkitProvider,
+  useBreakpoints,
 } from '@jpmorganchase/uitk-core';
 import { Header } from './sections/Header';
 import * as React from 'react';
@@ -32,18 +34,24 @@ function App(): JSX.Element {
   useBackgroundColour();
   const { Active, Navigation } = useNavigation(tabs);
   const print = usePrint(printTabs);
-  const width = useSmallMode() ? '100vw' : '40rem';
-
+  const { sm } = useBreakpoints();
+  const width = useSmallMode() ? '100%' : sm;
   return (
     <FlowLayout justify="center">
-      <StackLayout style={{ width }} gap={0}>
-        <Header />
+      <StackLayout style={{ width }} gap={0} align="center">
+        <Panel>
+          <Header />
+        </Panel>
         <ToolkitProvider density="touch">
           <Navigation />
         </ToolkitProvider>
-        <ToolkitProvider density="low">
-          <Active />
-        </ToolkitProvider>
+        <StackLayout style={{ width }} gap={0}>
+          <ToolkitProvider density="low">
+            <Panel>
+              <Active />
+            </Panel>
+          </ToolkitProvider>
+        </StackLayout>
         <Button onClick={print}>PRINT</Button>
       </StackLayout>
     </FlowLayout>

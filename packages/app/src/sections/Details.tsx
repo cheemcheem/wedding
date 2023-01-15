@@ -1,5 +1,4 @@
 import {
-  Panel,
   StackLayout,
   Card,
   Button,
@@ -53,26 +52,24 @@ export const Details: React.FC = () => {
     - ical downloads
   */
   return (
-    <Panel>
+    <StackLayout>
       <StackLayout>
-        <StackLayout>
-          <Card>
-            <FlowLayout justify="end" align="center">
-              <ResponseButton onClick={() => window.open(formUrl, '_blank')}>
-                RSVP
-              </ResponseButton>
-            </FlowLayout>
-            <FlowLayout justify="end" align="center">
-              <ResponseButton
-                disabled={Boolean(error)}
-                onClick={downloadCalendar}
-              >
-                Add to calendar
-              </ResponseButton>
-            </FlowLayout>
-          </Card>
-        </StackLayout>
+        <Card>
+          <FlowLayout justify="end" align="center">
+            <ResponseButton onClick={() => window.open(formUrl, '_blank')}>
+              RSVP
+            </ResponseButton>
+          </FlowLayout>
+          <FlowLayout justify="end" align="center">
+            <ResponseButton
+              disabled={Boolean(error)}
+              onClick={downloadCalendar}
+            >
+              Add to calendar
+            </ResponseButton>
+          </FlowLayout>
+        </Card>
       </StackLayout>
-    </Panel>
+    </StackLayout>
   );
 };

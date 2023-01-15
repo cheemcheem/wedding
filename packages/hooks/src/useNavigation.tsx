@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useSaveState } from '@wedding/hooks';
+import { useMatchMediaQuery, useSaveState } from '@wedding/hooks';
 import { useSmallMode } from './useSmallMode';
-import { Panel } from '@jpmorganchase/uitk-core';
+import { FlowLayout, Panel } from '@jpmorganchase/uitk-core';
 import { Dropdown, Tabstrip } from '@jpmorganchase/uitk-lab';
+import './Navigation.css';
 
 type NavigationProps = {
   locations: Map<string, React.FC>;
@@ -18,29 +19,49 @@ const Navigation: React.FC<NavigationProps> = ({
   const [open, setOpen] = useState(false);
   const keys = Array.from(locations.keys());
   const smallMode = useSmallMode();
-
+  const isTouchScreen = !useMatchMediaQuery('(hover: hover)');
   return smallMode ? (
-    <Panel variant="secondary" style={{ padding: 0, width: '100%' }}>
-      <Dropdown
-        isOpen={open}
-        onOpenChange={setOpen}
-        ListProps={{
-          onHighlight: (index) => {
-            if (index < 0) return;
-            setTimeout(() => {
-              setActive(Array.from(locations)[index][0]);
-              setOpen(false);
-            });
-          },
-          width: document.body.clientWidth,
-        }}
-        source={keys}
-        selected={active}
-        onSelectionChange={(_, selected) =>
-          selected && keys.indexOf(selected) >= 0 && setActive(selected)
-        }
-        width={document.body.clientWidth}
-      />
+    <Panel
+      variant={open ? 'secondary' : 'primary'}
+      style={{
+        padding: 0,
+        height: 'var(--uitkTabs-tabstrip-height, var(--uitk-size-stackable))',
+      }}
+    >
+      <FlowLayout align="center" style={{ height: '100%' }}>
+        <Dropdown
+          isOpen={open}
+          onOpenChange={setOpen}
+          ListProps={{
+            className: 'dropdown-from-top',
+            ...(isTouchScreen
+              ? {
+                  onHighlight: (index) => {
+                    if (index < 0) return;
+                    setTimeout(() => {
+                      setActive(Array.from(locations)[index][0]);
+                      setOpen(false);
+                    });
+                  },
+                  highlightedIndex: keys.indexOf(active),
+                }
+              : {}),
+          }}
+          className="dropdown-incremental-fade"
+          source={keys}
+          selected={active}
+          onSelectionChange={(_, selected) =>
+            selected && keys.indexOf(selected) >= 0 && setActive(selected)
+          }
+          width="100vw"
+          style={{
+            height:
+              'var(--uitkTabs-tabstrip-height, var(--uitk-size-stackable))',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        />
+      </FlowLayout>
     </Panel>
   ) : (
     <Tabstrip

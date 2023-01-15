@@ -1,5 +1,4 @@
 import { Accordion } from '@jpmorganchase/uitk-lab';
-
 import { StudentHallProps } from './StudentHall';
 import React from 'react';
 

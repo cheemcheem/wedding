@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import { useTheme, getCharacteristicValue } from '@jpmorganchase/uitk-core';
 
 export const useBackgroundColour = (): void => {
-  const { theme, mode } = useTheme();
-  console.log({ theme, mode });
+  const { theme } = useTheme();
   useEffect(() => {
     if (!theme) {
       return;

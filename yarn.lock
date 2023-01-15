@@ -1528,6 +1528,15 @@
     classnames "^2.2.6"
     no-scroll "^2.1.1"
 
+"@jpmorganchase/uitk-grid@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@jpmorganchase/uitk-grid/-/uitk-grid-0.4.0.tgz#fc42909ae3fc3dda9beddb400f792c8fab1ef97a"
+  integrity sha512-gk+HweERppFLtw3AmLFwfBAcwTA0i3E1v8vFCrRi7xu/cuPg8/ZspfseTc3znSh5SZTuucTgtkHyUYQlLKfavA==
+  dependencies:
+    "@jpmorganchase/uitk-core" "0.9.0"
+    "@jpmorganchase/uitk-lab" "0.9.0"
+    classnames "^2.2.6"
+
 "@jpmorganchase/uitk-icons@0.7.0", "@jpmorganchase/uitk-icons@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@jpmorganchase/uitk-icons/-/uitk-icons-0.7.0.tgz#9e327ffaea279b47c4894363e763939bd27a9d13"
@@ -1535,7 +1544,7 @@
   dependencies:
     classnames "^2.2.6"
 
-"@jpmorganchase/uitk-lab@^0.9.0":
+"@jpmorganchase/uitk-lab@0.9.0", "@jpmorganchase/uitk-lab@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@jpmorganchase/uitk-lab/-/uitk-lab-0.9.0.tgz#f22eee2faaa636a3d3877f0e15c0b058faf850cd"
   integrity sha512-TcVkqESEX+5f1Xh0ceKwj25pcc0VSvcUpYpy+My8B6ZWriYxj9u6/gq8iTQ0msPPol4MGKhgaREyXdciMezk8A==

@@ -1,4 +1,4 @@
-import { FlexLayout, FlowLayout } from '@jpmorganchase/uitk-core';
+import { FlowLayout } from '@jpmorganchase/uitk-core';
 import { Icon } from '@jpmorganchase/uitk-icons';
 import { Metric, MetricHeader, MetricContent } from '@jpmorganchase/uitk-lab';
 import React, { useContext } from 'react';

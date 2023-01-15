@@ -1,0 +1,47 @@
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.dropdown-from-top,
+.dropdown-incremental-fade .uitkListItem {
+  --dropdown-animation-delay: 0.025s;
+}
+
+.dropdown-from-top {
+  animation: ease-out 1 FadeIn;
+  animation-delay: 0s;
+  animation-duration: calc(5 * var(--dropdown-animation-delay));
+}
+
+.dropdown-incremental-fade .uitkListItem {
+  animation: ease-out 1 FadeIn;
+  animation-duration: var(--dropdown-animation-delay);
+  animation-fill-mode: both;
+}
+
+.dropdown-incremental-fade .uitkListItem:nth-of-type(1) {
+  animation-delay: calc(1 * var(--dropdown-animation-delay));
+}
+
+.dropdown-incremental-fade .uitkListItem:nth-of-type(2) {
+  animation-delay: calc(2 * var(--dropdown-animation-delay));
+}
+
+.dropdown-incremental-fade .uitkListItem:nth-of-type(3) {
+  animation-delay: calc(3 * var(--dropdown-animation-delay));
+}
+
+.dropdown-incremental-fade .uitkListItem:nth-of-type(4) {
+  animation-delay: calc(4 * var(--dropdown-animation-delay));
+}
+
+@media (prefers-reduced-motion) {
+  .dropdown-from-top {
+    animation: none;
+  }
+}
