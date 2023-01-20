@@ -2,6 +2,7 @@ import { Card, StackLayout, H2, H3, Text, H4 } from '@jpmorganchase/uitk-core';
 import { Link, List } from '@jpmorganchase/uitk-lab';
 import { TaxiListItem } from '@wedding/components';
 import { taxis } from '@wedding/data';
+import { useSmallMode } from '@wedding/hooks';
 import React from 'react';
 
 export const AdditionalInfo: React.FC = () => {
@@ -27,7 +28,7 @@ export const AdditionalInfo: React.FC = () => {
             borderless
             displayedItemCount={-1}
             selected={[]}
-            highlightedIndex={-1}
+            style={{ userSelect: 'text' }}
           >
             {taxis.map(TaxiListItem)}
           </List>

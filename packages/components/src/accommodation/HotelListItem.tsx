@@ -2,6 +2,7 @@ import { FlowLayout, H4, StackLayout } from '@jpmorganchase/uitk-core';
 import { Link, ListItem } from '@jpmorganchase/uitk-lab';
 import { useSmallMode } from '@wedding/hooks';
 import React from 'react';
+import { ListItemWrapper } from '../common/ListItemWrapper';
 
 export interface HotelListItemProps {
   name: string;
@@ -24,5 +25,9 @@ export const HotelListItem: React.FC<HotelListItemProps> = ({ name, url }) => {
       </Link>
     </FlowLayout>
   );
-  return <ListItem style={{ padding: 0 }}>{Item}</ListItem>;
+  return (
+    <ListItem style={{ padding: 0, cursor: 'auto' }}>
+      <ListItemWrapper>{Item}</ListItemWrapper>
+    </ListItem>
+  );
 };

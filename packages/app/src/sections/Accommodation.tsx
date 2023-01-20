@@ -3,8 +3,10 @@ import { Card, StackLayout, H3 } from '@jpmorganchase/uitk-core';
 import { StudentHalls, StudentHall, HotelListItem } from '@wedding/components';
 import { halls, hotels } from '@wedding/data';
 import { List } from '@jpmorganchase/uitk-lab';
+import { useSmallMode } from '@wedding/hooks';
 
 export const Accommodation: React.FC = () => {
+  const isSmallMode = useSmallMode();
   return (
     <StackLayout>
       <StackLayout>
@@ -37,11 +39,9 @@ export const Accommodation: React.FC = () => {
               borderless
               displayedItemCount={-1}
               selected={[]}
-              highlightedIndex={-1}
+              style={{ userSelect: 'text' }}
             >
-              {hotels.map((props) => (
-                <HotelListItem {...props} />
-              ))}
+              {hotels.map(HotelListItem)}
             </List>
           </StackLayout>
         </Card>

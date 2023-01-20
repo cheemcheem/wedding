@@ -1,15 +1,9 @@
-import {
-  FlexItem,
-  FlowLayout,
-  H4,
-  StackLayout,
-  Text,
-} from '@jpmorganchase/uitk-core';
+import { FlowLayout, Text } from '@jpmorganchase/uitk-core';
 import { CallSolidIcon } from '@jpmorganchase/uitk-icons';
-import { Link, ListItem } from '@jpmorganchase/uitk-lab';
+import { ListItem } from '@jpmorganchase/uitk-lab';
 import { useSmallMode } from '@wedding/hooks';
 import React from 'react';
-
+import { ListItemWrapper } from '../common/ListItemWrapper';
 interface TaxiProps {
   name: string;
   number: string;
@@ -17,36 +11,31 @@ interface TaxiProps {
 
 export const TaxiListItem: React.FC<TaxiProps> = ({ name, number }) => {
   const isSmallMode = useSmallMode();
-  const Item = isSmallMode ? (
-    <StackLayout style={{ width: '100%' }} gap={0}>
-      <FlexItem align="start">
-        <H4 style={{ margin: 0 }}>{name}</H4>
-      </FlexItem>
-      <FlexItem align="end">
-        <FlowLayout align="center" gap={1}>
-          <CallSolidIcon
-            // @ts-ignore
-            style={{ '--icon-color': 'var(--uitk-palette-success-foreground)' }}
-          />
-          <Text>
-            <Link href={`tel:${number}`}>{number}</Link>
-          </Text>
-        </FlowLayout>
-      </FlexItem>
-    </StackLayout>
-  ) : (
+  const href = `tel:${number}`;
+
+  const Item = (
     <FlowLayout style={{ width: '100%' }} justify="space-between">
-      <H4 style={{ margin: 0 }}>{name}</H4>
+      <Text styleAs="h4" style={{ margin: 0 }}>
+        {name}
+      </Text>
       <FlowLayout align="center" gap={1}>
         <CallSolidIcon
-          // @ts-ignore
-          style={{ '--icon-color': 'var(--uitk-palette-success-foreground)' }}
+          style={{
+            // @ts-ignore
+            '--icon-color': 'var(--uitk-palette-success-foreground)',
+          }}
         />
-        <Text>
-          <Link href={`tel:${number}`}>{number}</Link>
-        </Text>
+        {!isSmallMode && <Text>{number}</Text>}
       </FlowLayout>
     </FlowLayout>
   );
-  return <ListItem style={{ padding: 0 }}>{Item}</ListItem>;
+  return (
+    <ListItem
+      onClick={isSmallMode ? () => window.open(href, '_self') : undefined}
+      // @ts-ignore
+      style={{ padding: 0, cursor: 'auto' }}
+    >
+      <ListItemWrapper>{Item}</ListItemWrapper>
+    </ListItem>
+  );
 };
