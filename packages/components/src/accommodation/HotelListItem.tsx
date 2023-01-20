@@ -3,7 +3,7 @@ import { Link, ListItem } from '@jpmorganchase/uitk-lab';
 import { useSmallMode } from '@wedding/hooks';
 import React from 'react';
 
-interface HotelListItemProps {
+export interface HotelListItemProps {
   name: string;
   url: string;
 }

@@ -1,17 +1,8 @@
 import { Card, StackLayout, H2, H3, Text, H4 } from '@jpmorganchase/uitk-core';
 import { Link, List } from '@jpmorganchase/uitk-lab';
 import { TaxiListItem } from '@wedding/components';
+import { taxis } from '@wedding/data';
 import React from 'react';
-
-const taxis = [
-  { name: "St Andrews's Taxis", number: '01334 477272' },
-  { name: 'Easy Taxi St Andrews', number: '07807 660069' },
-  { name: 'St Andrews Taxi Services', number: '07878 707274' },
-  { name: 'Golf City Taxis', number: '01334 477788' },
-  { name: 'Club Cars St Andrews', number: '01334 479900' },
-  { name: 'Platinum Cabs', number: '01334 754754' },
-  { name: 'H M Taxis', number: '01334 474700' },
-];
 
 export const AdditionalInfo: React.FC = () => {
   /* Under additional info, have:
