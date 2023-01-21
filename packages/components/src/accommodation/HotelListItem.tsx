@@ -13,13 +13,15 @@ export const HotelListItem: React.FC<HotelListItemProps> = ({ name, url }) => {
   const isSmallMode = useSmallMode();
   const Item = isSmallMode ? (
     <StackLayout style={{ width: '100%' }} gap={0}>
-      <Link href={url} target="_blank" styleAs="h4">
+      <Link href={url} target="_blank" styleAs="h3">
         {name}
       </Link>
     </StackLayout>
   ) : (
-    <FlowLayout style={{ width: '100%' }} justify="space-between">
-      <H4 style={{ margin: 0 }}>{name}</H4>
+    <FlowLayout style={{ width: '100%' }} justify="space-between" wrap={false}>
+      <H4 styleAs="h3" style={{ margin: 0 }} maxRows={1}>
+        {name}
+      </H4>
       <Link href={url} target="_blank">
         website
       </Link>

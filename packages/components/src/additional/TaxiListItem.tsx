@@ -15,7 +15,7 @@ export const TaxiListItem: React.FC<TaxiProps> = ({ name, number }) => {
 
   const Item = (
     <FlowLayout style={{ width: '100%' }} justify="space-between">
-      <Text styleAs="h4" style={{ margin: 0 }}>
+      <Text styleAs="h3" style={{ margin: 0 }}>
         {name}
       </Text>
       <FlowLayout align="center" gap={1}>

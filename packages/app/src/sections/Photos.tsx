@@ -1,6 +1,7 @@
 import { ContentStatus } from '@jpmorganchase/uitk-lab';
 import React from 'react';
 
+//TODO: Update to match font size
 export const Photos: React.FC = () => (
   <ContentStatus
     title="Coming Soon"

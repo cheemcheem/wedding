@@ -52,6 +52,8 @@ function App(): JSX.Element {
             </Panel>
           </ToolkitProvider>
         </StackLayout>
+        {/* TODO: Make print button on all pages apart from photos */}
+        {/* TODO: Make print button long */}
         <Button onClick={print}>PRINT</Button>
       </StackLayout>
     </FlowLayout>

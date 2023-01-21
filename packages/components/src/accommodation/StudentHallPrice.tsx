@@ -19,7 +19,6 @@ export const StudentHallPrice: React.FC<StudentHallPriceProps> = ({
   title,
   price,
 }) => {
-  // TODO: Value should be non-discounted, subvalue should have discount code WED23
   const value = `£${price.toFixed(2)}`;
   const subvalue = discountPercent
     ? `${discountPercent}% discount available using code WED23`
