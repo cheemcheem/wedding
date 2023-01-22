@@ -35,6 +35,8 @@ jobs:
         with:
           node-version: 16
           cache: 'yarn'
+      - name: Install
+        run: yarn install
       - name: Build
         run: yarn modular build @wedding/app
       - name: Setup Pages
