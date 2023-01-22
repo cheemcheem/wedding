@@ -51,11 +51,11 @@ export const StudentHall: React.FC<StudentHallProps> = ({
           gap={2}
           separators
         >
-          <Text>
-            <H3>{name}</H3>
-            <H4>({type})</H4>
+          <StackLayout gap={2}>
+            <H4 styleAs="h3">{name}</H4>
+            <Text styleAs="h4">({type})</Text>
             <StudentHallContactDetails {...{ email, telephone, website }} />
-          </Text>
+          </StackLayout>
           {prices.map(({ icon, price, title, discountPercent, subtitle }) => (
             <StudentHallPrice
               {...{ icon, key: title, price, title, discountPercent, subtitle }}

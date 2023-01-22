@@ -7,6 +7,7 @@ import {
 import { Link } from '@jpmorganchase/uitk-lab';
 import React, { useContext } from 'react';
 import { PrintContext } from '../PrintContext';
+import { PrintLink } from '../PrintLink';
 
 export interface StudentHallContactDetailsProps {
   email: string;
@@ -23,31 +24,32 @@ export const StudentHallContactDetails: React.FC<
       <StackLayout gap={1}>
         <FlowLayout align="center" gap={1}>
           <CallSolidIcon
-            // @ts-ignore
-            style={{ '--icon-color': 'var(--uitk-palette-success-foreground)' }}
+            style={{
+              '--icon-color': 'var(--uitk-palette-success-foreground, green)',
+            }}
           />
           <Text>
-            <Link href={`tel:${telephone}`}>{telephone}</Link>
+            <PrintLink prefix="tel:" href={telephone} />
           </Text>
         </FlowLayout>
         <FlowLayout align="center" gap={1} wrap={false}>
           <MessageSolidIcon
-            // @ts-ignore
-            style={{ '--icon-color': 'var(--uitk-palette-info-foreground)' }}
+            style={{
+              '--icon-color': 'var(--uitk-palette-info-foreground, steelblue)',
+            }}
           />
           <Text maxRows={1}>
-            <Link href={`mailto:${email}`}>{email}</Link>
+            <PrintLink prefix="mailto:" href={email} />
           </Text>
         </FlowLayout>
         <FlowLayout align="center" gap={1}>
           <GlobeSolidIcon
-            // @ts-ignore
-            style={{ '--icon-color': 'var(--uitk-palette-info-foreground)' }}
+            style={{
+              '--icon-color': 'var(--uitk-palette-info-foreground, steelblue)',
+            }}
           />
           <Text>
-            <Link href={website} target="_blank">
-              website
-            </Link>
+            <PrintLink href={website} target="_blank" />
           </Text>
           {printMode && <br />}
         </FlowLayout>

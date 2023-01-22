@@ -1,8 +1,9 @@
-import { FlowLayout, H4, StackLayout } from '@jpmorganchase/uitk-core';
+import { FlowLayout, Text, StackLayout } from '@jpmorganchase/uitk-core';
 import { Link, ListItem } from '@jpmorganchase/uitk-lab';
 import { useSmallMode } from '@wedding/hooks';
-import React from 'react';
-import { ListItemWrapper } from '../common/ListItemWrapper';
+import React, { useContext } from 'react';
+import { PrintContext } from '../PrintContext';
+import { PrintLink } from '../PrintLink';
 
 export interface HotelListItemProps {
   name: string;
@@ -18,18 +19,17 @@ export const HotelListItem: React.FC<HotelListItemProps> = ({ name, url }) => {
       </Link>
     </StackLayout>
   ) : (
-    <FlowLayout style={{ width: '100%' }} justify="space-between" wrap={false}>
-      <H4 styleAs="h3" style={{ margin: 0 }} maxRows={1}>
+    <FlowLayout
+      style={{ width: '100%' }}
+      justify="space-between"
+      wrap={false}
+      align="center"
+    >
+      <Text styleAs="h3" maxRows={1}>
         {name}
-      </H4>
-      <Link href={url} target="_blank">
-        website
-      </Link>
+      </Text>
+      <PrintLink href={url} target="_blank" />
     </FlowLayout>
   );
-  return (
-    <ListItem style={{ padding: 0, cursor: 'auto' }}>
-      <ListItemWrapper>{Item}</ListItemWrapper>
-    </ListItem>
-  );
+  return <ListItem style={{ padding: 0, cursor: 'auto' }}>{Item}</ListItem>;
 };

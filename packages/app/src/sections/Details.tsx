@@ -1,55 +1,82 @@
 import { StackLayout, Card, H3, Text, Button } from '@jpmorganchase/uitk-core';
-import React from 'react';
-import { calendarAvailable, downloadCalendar, rsvpURL } from '@wedding/data';
+import React, { useContext } from 'react';
+import {
+  addressWithLineBreaks,
+  calendarAvailable,
+  ChapelAddress,
+  downloadCalendar,
+  ReceptionAddress,
+  rsvpURL,
+} from '@wedding/data';
+import { PrintContext, StackCard } from '@wedding/components';
+import { ButtonBar, Link, OrderedButton } from '@jpmorganchase/uitk-lab';
+import { useSmallMode } from '@wedding/hooks';
+import { PrintLink } from '@wedding/components/src/PrintLink';
 
 export const Details: React.FC = () => {
-  // TODO: Address hyperlink to google maps below
+  const { printButton, printMode } = useContext(PrintContext);
+
+  const isSmallMode = useSmallMode();
+  const buttons = (
+    <>
+      <OrderedButton
+        align={isSmallMode ? undefined : 'left'}
+        variant="cta"
+        onClick={() => window.open(rsvpURL, '_blank')}
+      >
+        Please RSVP here
+      </OrderedButton>
+      <OrderedButton disabled={!calendarAvailable} onClick={downloadCalendar}>
+        Add to calendar
+      </OrderedButton>
+      {printButton}
+    </>
+  );
+
   return (
     <StackLayout>
-      <StackLayout>
-        <Text styleAs="h2">Saturday 12th August 2023</Text>
-        <Card>
-          <StackLayout gap={2}>
-            <H3 styleAs="h1" style={{ margin: 0 }}>
-              Wedding Ceremony
-            </H3>
-            <Text styleAs="h3">
-              St Salvator's Chapel, University of St Andrews, North Street, St
-              Andrews, KY16 9AL
-            </Text>
-            <Text styleAs="h3">2-3pm</Text>
-            <Text styleAs="h3">
-              All guests must arrive at the chapel between 1:30pm and 1:50pm.
-              Guests who arrive later than 1:50pm will unfortunately be denied
-              entry.
-            </Text>
-          </StackLayout>
-        </Card>
-        <Card>
-          <StackLayout gap={2}>
-            <H3 styleAs="h1" style={{ margin: 0 }}>
-              Wedding Reception
-            </H3>
-            <Text styleAs="h3">
-              Old Course Hotel, Golf Resort & Spa, Old Station Road, St Andrews,
-              Scotland, KY16 9SP
-            </Text>
-            <Text styleAs="h3">3:15pm-1am</Text>
-            <Text styleAs="h3">
-              The Wedding Breakfast will consist of a pre-selected set menu.
-              Please indicate any dietary requirements you have (e.g.
-              vegetarian, vegan, gluten free, nut allergy) on our RSVP form
-              below.
-            </Text>
-          </StackLayout>
-        </Card>
-        <Button onClick={() => window.open(rsvpURL, '_blank')}>
-          Please RSVP here
-        </Button>
-        <Button disabled={!calendarAvailable} onClick={downloadCalendar}>
-          Add to calendar
-        </Button>
-      </StackLayout>
+      <Text styleAs="h2">Saturday 12th August 2023</Text>
+      <StackCard>
+        <H3 styleAs="h1">Wedding Ceremony</H3>
+        <Text styleAs="h3">
+          <Link
+            styleAs="h3"
+            href={ChapelAddress.url}
+            target="_blank"
+            aria-label="Maps Link"
+            aria-details={`A link that will open up ${ChapelAddress.name} in Google or Apple Maps.`}
+          >
+            {addressWithLineBreaks(ChapelAddress.address)}
+          </Link>
+        </Text>
+        <Text styleAs="h3">2-3pm</Text>
+        <Text styleAs="h3">
+          All guests must arrive at the chapel between 1:30pm and 1:50pm. Guests
+          who arrive later than 1:50pm will unfortunately be denied entry.
+        </Text>
+      </StackCard>
+      <StackCard>
+        <H3 styleAs="h1">Wedding Reception</H3>
+        <Text styleAs="h3">
+          <Link
+            styleAs="h3"
+            href={ReceptionAddress.url}
+            target="_blank"
+            aria-label="Maps Link"
+            aria-details={`A link that will open up ${ReceptionAddress.name} in Google or Apple Maps.`}
+          >
+            {addressWithLineBreaks(ReceptionAddress.address)}
+          </Link>
+        </Text>
+        <Text styleAs="h3">3:15pm-1am</Text>
+        <Text styleAs="h3">
+          The Wedding Breakfast will consist of a pre-selected set menu. Please
+          indicate any dietary requirements you have (e.g. vegetarian, vegan,
+          gluten free, nut allergy) on our RSVP form{' '}
+          {printMode ? <PrintLink href={rsvpURL}>here</PrintLink> : 'below'}.
+        </Text>
+      </StackCard>
+      {isSmallMode ? buttons : <ButtonBar>{buttons}</ButtonBar>}
     </StackLayout>
   );
 };

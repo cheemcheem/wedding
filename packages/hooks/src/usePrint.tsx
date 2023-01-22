@@ -1,8 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useLayoutEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Panel, H1, H2 } from '@jpmorganchase/uitk-core';
 import { PrintContext } from '@wedding/components';
-import '@jpmorganchase/uitk-theme/index.css';
 
 export const usePrint = (tabs: PrintProps['tabs']): (() => void) => {
   const print = useCallback(() => {
@@ -45,12 +44,17 @@ svg, button {
 }
 
 .uitkList {
-  counter-reset: hotel_link;
+  counter-reset: list_item;
 }
 
-.uitkList a::before {
-  counter-increment: hotel_link;
-  content: counter(hotel_link) ". ";
+.uitkListItem:not(.uitkListItem-proxy)::before {
+  counter-increment: list_item;
+  content: counter(list_item) ". ";
+  width: 4ch;
+}
+
+.uitkListItem, .uitkListItem .uitkFlexLayout {
+  display: flex;
 }
 
 a {
@@ -58,10 +62,6 @@ a {
   text-decoration: none;
 }
 
-a::after {
-  color: rgb(0, 102, 204);
-  content: ": " attr(href);
-}
 
 * {
   height: auto!important;
@@ -73,20 +73,26 @@ interface PrintProps {
   tabs: Map<string, React.FC>;
 }
 export const Print: React.FC<PrintProps> = ({ tabs }) => {
+  useLayoutEffect(() => {
+    const handler = window.close;
+    window.addEventListener('afterprint', handler);
+    return () => {
+      window.removeEventListener('afterprint', handler);
+    };
+  }, []);
   return (
     <>
       <head>
         <title>Print Dialog</title>
         <style children={style} />
       </head>
-      <body
-        // @ts-ignore
-        onafterprint="self.close()"
-      >
+      <body>
         <div id="root">
           <Panel style={{ padding: '1rem' }}>
             <H1>Katharine & Kathan's Wedding</H1>
-            <PrintContext.Provider value={{ printMode: true }}>
+            <PrintContext.Provider
+              value={{ printMode: true, printButton: null }}
+            >
               {Array.from(tabs).map(([name, Component]) => {
                 return (
                   <>

@@ -3,21 +3,18 @@ import {
   FlowLayout,
   Panel,
   StackLayout,
-  ToolkitProvider,
   useBreakpoints,
 } from '@jpmorganchase/uitk-core';
 import { Header } from './sections/Header';
 import * as React from 'react';
-import {
-  useBackgroundColour,
-  useNavigation,
-  useSmallMode,
-  usePrint,
-} from '@wedding/hooks';
+import { useNavigation, useSmallMode, usePrint } from '@wedding/hooks';
 import { Accommodation } from './sections/Accommodation';
 import { AdditionalInfo } from './sections/AdditionalInfo';
 import { Details } from './sections/Details';
 import { Photos } from './sections/Photos';
+import { useContext } from 'react';
+import { PrintContext } from '@wedding/components';
+import { OrderedButton } from '@jpmorganchase/uitk-lab';
 
 const tabs = new Map([
   ['Details', Details],
@@ -31,32 +28,35 @@ const printTabs = new Map(
 );
 
 function App(): JSX.Element {
-  useBackgroundColour();
   const { Active, Navigation } = useNavigation(tabs);
-  const print = usePrint(printTabs);
+
   const { sm } = useBreakpoints();
   const width = useSmallMode() ? '100%' : sm;
+
+  const print = usePrint(printTabs);
+  const { printMode } = useContext(PrintContext);
+
   return (
-    <FlowLayout justify="center">
-      <StackLayout style={{ width }} gap={0} align="center">
-        <Panel>
-          <Header />
-        </Panel>
-        <ToolkitProvider density="touch">
+    <PrintContext.Provider
+      value={{
+        printButton: <OrderedButton onClick={print}>PRINT</OrderedButton>,
+        printMode,
+      }}
+    >
+      <FlowLayout justify="center">
+        <StackLayout style={{ width }} gap={0} align="center">
+          <Panel>
+            <Header />
+          </Panel>
           <Navigation />
-        </ToolkitProvider>
-        <StackLayout style={{ width }} gap={0}>
-          <ToolkitProvider density="low">
+          <StackLayout style={{ width }} gap={0}>
             <Panel>
               <Active />
             </Panel>
-          </ToolkitProvider>
+          </StackLayout>
         </StackLayout>
-        {/* TODO: Make print button on all pages apart from photos */}
-        {/* TODO: Make print button long */}
-        <Button onClick={print}>PRINT</Button>
-      </StackLayout>
-    </FlowLayout>
+      </FlowLayout>
+    </PrintContext.Provider>
   );
 }
 

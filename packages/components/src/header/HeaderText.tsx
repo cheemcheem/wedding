@@ -6,9 +6,8 @@ export const HeaderText: React.FC<PropsWithChildren> = ({ children }) => {
     <Text
       style={{
         fontFamily: "'Dancing Script', cursive",
-        fontSize: '4rem',
-        lineHeight: '4rem',
       }}
+      styleAs="display2"
       children={children}
     />
   );

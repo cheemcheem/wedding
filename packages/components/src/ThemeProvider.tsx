@@ -19,7 +19,7 @@ export const ThemeProvider: React.FC<React.PropsWithChildren> = ({
     return () => {
       matchesDarkMode.removeEventListener('change', updateTheme);
     };
-  });
+  }, []);
   return (
     <ToolkitProvider density="low" mode={theme}>
       {children}
