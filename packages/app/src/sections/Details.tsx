@@ -23,8 +23,9 @@ export const Details: React.FC = () => {
         align={isSmallMode ? undefined : 'left'}
         variant="cta"
         onClick={() => window.open(rsvpURL, '_blank')}
+        style={{ width: '100%' }}
       >
-        Please RSVP here
+        RSVP
       </OrderedButton>
       <OrderedButton disabled={!calendarAvailable} onClick={downloadCalendar}>
         Add to calendar
@@ -70,9 +71,9 @@ export const Details: React.FC = () => {
         </Text>
         <Text styleAs="h3">3:15pm-1am</Text>
         <Text styleAs="h3">
-          The Wedding Breakfast will consist of a pre-selected set menu. Please
-          indicate any dietary requirements you have (e.g. vegetarian, vegan,
-          gluten free, nut allergy) on our RSVP form{' '}
+          The Wedding Breakfast will consist of a set menu. Please indicate any
+          dietary requirements you have (e.g. vegetarian, vegan, gluten free,
+          nut allergy) on our RSVP form{' '}
           {printMode ? <PrintLink href={rsvpURL}>here</PrintLink> : 'below'}.
         </Text>
       </StackCard>

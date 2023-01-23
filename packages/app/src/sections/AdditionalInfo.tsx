@@ -21,7 +21,8 @@ export const AdditionalInfo: React.FC = () => {
             style={{ display: 'inline-block' }}
           >
             cocktail&nbsp;attire
-          </PrintLink>
+          </PrintLink>{' '}
+          / semi-formal.
         </Text>
       </StackCard>
       <StackCard>
