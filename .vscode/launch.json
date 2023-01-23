@@ -2,15 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Tests",
-      "type": "node",
+      "command": "yarn start",
+      "name": "Run yarn start",
       "request": "launch",
-      "args": ["${relativeFile}"],
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/modular",
-      "runtimeArgs": ["test", "--watchAll=false"],
-      "sourceMaps": true,
-      "cwd": "${workspaceRoot}",
-      "protocol": "inspector"
+      "type": "node-terminal"
     }
   ]
 }

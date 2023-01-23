@@ -17,7 +17,7 @@ export const usePrint = (tabs: PrintProps['tabs']): (() => void) => {
 
     const root = createRoot(element);
     root.render(<Print tabs={tabs} />);
-    printWindow.window.print();
+    printWindow.window.onload = () => printWindow.window.print();
   }, [tabs]);
 
   return print;
