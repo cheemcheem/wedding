@@ -14,6 +14,7 @@ import {
   useSmallMode,
   usePrint,
   useSmallerThan,
+  smallModeBreakpoint,
 } from '@wedding/hooks';
 import { Accommodation } from './sections/Accommodation';
 import { AdditionalInfo } from './sections/AdditionalInfo';
@@ -37,43 +38,25 @@ const printTabs = new Map(
 function App(): JSX.Element {
   const { Active, Navigation } = useNavigation(tabs);
 
-  const { xs, sm, md, lg, xl } = useBreakpoints();
-  // const [width, setWidth] = React.useState<string | number>('100%');
-  const width = useSmallMode() ? '100%' : md;
-
-  const { setFontSize } = useContext(FontSizeContext);
-
-  const smallerThanXS = useSmallerThan('xs');
+  const breakpoints = useBreakpoints();
   const smallerThanSM = useSmallerThan('sm');
   const smallerThanMD = useSmallerThan('md');
-  const smallerThanLG = useSmallerThan('lg');
-  const smallerThanXL = useSmallerThan('xl');
+  const width = useSmallMode() ? '100%' : breakpoints[smallModeBreakpoint];
+
+  const { setFontSize } = useContext(FontSizeContext);
 
   React.useEffect(() => {
     if (smallerThanSM) {
       setFontSize('high');
-      // setWidth('100%');
     } else if (smallerThanMD) {
       setFontSize('medium');
-      // setWidth(md);
-    } else if (smallerThanLG) {
-      setFontSize('low');
-      // setWidth(md);
     } else {
-      setFontSize('touch');
+      setFontSize('low');
     }
-  }, [
-    setFontSize,
-    smallerThanXS,
-    smallerThanSM,
-    smallerThanMD,
-    smallerThanLG,
-    smallerThanXL,
-  ]);
+  }, [setFontSize, smallerThanSM, smallerThanMD]);
   const print = usePrint(printTabs);
   const { printMode } = useContext(PrintContext);
-  // TODO: these buttons sometimes are disabled on touch screen
-  //TODO: need to figure out positioning of these buttons
+
   return (
     <PrintContext.Provider
       value={{
