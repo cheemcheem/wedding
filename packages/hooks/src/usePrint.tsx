@@ -17,7 +17,10 @@ export const usePrint = (tabs: PrintProps['tabs']): (() => void) => {
 
     const root = createRoot(element);
     root.render(<Print tabs={tabs} />);
-    printWindow.window.onload = () => printWindow.window.print();
+    printWindow.window.setTimeout(() => {
+      printWindow.window.print();
+      printWindow.window.setTimeout(printWindow.window.close, 200);
+    }, 100);
   }, [tabs]);
 
   return print;
