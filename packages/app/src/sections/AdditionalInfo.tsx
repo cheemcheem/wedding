@@ -4,7 +4,7 @@ import { PrintContext, TaxiListItem, StackCard } from '@wedding/components';
 import { PrintLink } from '@wedding/components/src/PrintLink';
 import { taxis } from '@wedding/data';
 import React, { useContext } from 'react';
-
+// TODO: find better reds
 export const AdditionalInfo: React.FC = () => {
   const { printButton } = useContext(PrintContext);
 

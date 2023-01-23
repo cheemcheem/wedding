@@ -2,19 +2,26 @@ import {
   Button,
   FlowLayout,
   Panel,
+  Scrim,
   StackLayout,
+  ToolkitProvider,
   useBreakpoints,
 } from '@jpmorganchase/uitk-core';
 import { Header } from './sections/Header';
 import * as React from 'react';
-import { useNavigation, useSmallMode, usePrint } from '@wedding/hooks';
+import {
+  useNavigation,
+  useSmallMode,
+  usePrint,
+  useSmallerThan,
+} from '@wedding/hooks';
 import { Accommodation } from './sections/Accommodation';
 import { AdditionalInfo } from './sections/AdditionalInfo';
 import { Details } from './sections/Details';
 import { Photos } from './sections/Photos';
 import { useContext } from 'react';
-import { PrintContext } from '@wedding/components';
-import { OrderedButton } from '@jpmorganchase/uitk-lab';
+import { FontSizeContext, PrintContext } from '@wedding/components';
+import { ButtonBar, OrderedButton } from '@jpmorganchase/uitk-lab';
 
 const tabs = new Map([
   ['Details', Details],
@@ -30,12 +37,43 @@ const printTabs = new Map(
 function App(): JSX.Element {
   const { Active, Navigation } = useNavigation(tabs);
 
-  const { sm } = useBreakpoints();
-  const width = useSmallMode() ? '100%' : sm;
+  const { xs, sm, md, lg, xl } = useBreakpoints();
+  // const [width, setWidth] = React.useState<string | number>('100%');
+  const width = useSmallMode() ? '100%' : md;
 
+  const { setFontSize } = useContext(FontSizeContext);
+
+  const smallerThanXS = useSmallerThan('xs');
+  const smallerThanSM = useSmallerThan('sm');
+  const smallerThanMD = useSmallerThan('md');
+  const smallerThanLG = useSmallerThan('lg');
+  const smallerThanXL = useSmallerThan('xl');
+
+  React.useEffect(() => {
+    if (smallerThanSM) {
+      setFontSize('high');
+      // setWidth('100%');
+    } else if (smallerThanMD) {
+      setFontSize('medium');
+      // setWidth(md);
+    } else if (smallerThanLG) {
+      setFontSize('low');
+      // setWidth(md);
+    } else {
+      setFontSize('touch');
+    }
+  }, [
+    setFontSize,
+    smallerThanXS,
+    smallerThanSM,
+    smallerThanMD,
+    smallerThanLG,
+    smallerThanXL,
+  ]);
   const print = usePrint(printTabs);
   const { printMode } = useContext(PrintContext);
-
+  // TODO: these buttons sometimes are disabled on touch screen
+  //TODO: need to figure out positioning of these buttons
   return (
     <PrintContext.Provider
       value={{

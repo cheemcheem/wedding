@@ -1,9 +1,36 @@
-import { Mode, ToolkitProvider } from '@jpmorganchase/uitk-core';
+import {
+  Mode,
+  ToolkitProvider,
+  Density,
+  Breakpoints,
+} from '@jpmorganchase/uitk-core';
+import { useSaveState } from '@wedding/hooks';
 import React from 'react';
+// xs: 0,
+// sm: 600,
+// md: 960,
+// lg: 1280,
+// xl: 1920,
+const breakpoints: Breakpoints = {
+  xs: 0,
+  sm: 300,
+  md: 500,
+  lg: 1920,
+  xl: 2560,
+};
+
+interface FontSizeContextData {
+  setFontSize: (density: Density) => void;
+}
+
+export const FontSizeContext = React.createContext<FontSizeContextData>({
+  setFontSize: () => undefined,
+});
 
 export const ThemeProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
+  const [density, setDensity] = useSaveState<Density>('density', 'low');
   const [theme, setTheme] = React.useState<Mode>('light');
 
   React.useEffect(() => {
@@ -20,9 +47,12 @@ export const ThemeProvider: React.FC<React.PropsWithChildren> = ({
       matchesDarkMode.removeEventListener('change', updateTheme);
     };
   }, []);
+
   return (
-    <ToolkitProvider density="low" mode={theme}>
-      {children}
+    <ToolkitProvider density={density} mode={theme} breakpoints={breakpoints}>
+      <FontSizeContext.Provider value={{ setFontSize: setDensity }}>
+        {children}
+      </FontSizeContext.Provider>
     </ToolkitProvider>
   );
 };
