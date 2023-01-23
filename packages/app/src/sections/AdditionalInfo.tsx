@@ -4,7 +4,7 @@ import { PrintContext, TaxiListItem, StackCard } from '@wedding/components';
 import { PrintLink } from '@wedding/components/src/PrintLink';
 import { taxis } from '@wedding/data';
 import React, { useContext } from 'react';
-// TODO: find better reds
+
 export const AdditionalInfo: React.FC = () => {
   const { printButton } = useContext(PrintContext);
 
@@ -13,16 +13,15 @@ export const AdditionalInfo: React.FC = () => {
       <StackCard>
         <H3 styleAs="h1">Dress Code</H3>
         <Text styleAs="h3">
-          The wedding dress code is cocktail attire. Read more about the dress
-          code{' '}
+          The wedding dress code is{' '}
           <PrintLink
             href="https://www.brides.com/cocktail-attire-wedding-4844364"
             target="_blank"
             styleAs="h3"
+            style={{ display: 'inline-block' }}
           >
-            here
+            cocktail&nbsp;attire
           </PrintLink>
-          .
         </Text>
       </StackCard>
       <StackCard>
@@ -33,7 +32,7 @@ export const AdditionalInfo: React.FC = () => {
             styleAs="h3"
             style={{
               textDecoration: 'underline',
-              color: 'var(--uitk-palette-error-foreground, red)',
+              color: 'var(--uitk-palette-negative-foreground, red)',
             }}
           >
             strictly
@@ -47,7 +46,7 @@ export const AdditionalInfo: React.FC = () => {
             styleAs="h3"
             style={{
               textDecoration: 'underline',
-              color: 'var(--uitk-palette-error-foreground, red)',
+              color: 'var(--uitk-palette-negative-foreground, red)',
             }}
           >
             must
@@ -63,7 +62,7 @@ export const AdditionalInfo: React.FC = () => {
             styleAs="h3"
             style={{
               textDecoration: 'underline',
-              color: 'var(--uitk-palette-error-foreground, red)',
+              color: 'var(--uitk-palette-negative-foreground, red)',
             }}
           >
             not
@@ -82,7 +81,7 @@ export const AdditionalInfo: React.FC = () => {
             styleAs="h3"
             style={{
               textDecoration: 'underline',
-              color: 'var(--uitk-palette-error-foreground, red)',
+              color: 'var(--uitk-palette-negative-foreground, red)',
             }}
           >
             only
@@ -93,28 +92,36 @@ export const AdditionalInfo: React.FC = () => {
           Car parks in St Andrews town centre are{' '}
           <PrintLink
             styleAs="h3"
+            target="_blank"
             href="https://www.fife.gov.uk/facilities/car-park/murray-place-car-park,-st-andrews"
+            style={{ display: 'inline-block' }}
           >
             Murray&nbsp;Place
           </PrintLink>
           ,{' '}
           <PrintLink
             styleAs="h3"
+            target="_blank"
             href="https://www.fife.gov.uk/facilities/car-park/st-marys-place-car-park,-st-andrews"
+            style={{ display: 'inline-block' }}
           >
             St&nbsp;Mary's&nbsp;Place
           </PrintLink>{' '}
           and Argyle&nbsp;Street (
           <PrintLink
             styleAs="h3"
+            target="_blank"
             href="https://www.fife.gov.uk/facilities/car-park/argyle-street-north-car-park,-st-andrews"
+            style={{ display: 'inline-block' }}
           >
             North
           </PrintLink>
           {' / '}
           <PrintLink
             styleAs="h3"
+            target="_blank"
             href="https://www.fife.gov.uk/facilities/car-park/argyle-street-south-car-park,-st-andrews"
+            style={{ display: 'inline-block' }}
           >
             South
           </PrintLink>
@@ -152,7 +159,6 @@ export const AdditionalInfo: React.FC = () => {
           >
             WaterAid
           </PrintLink>
-          .
         </Text>
       </StackCard>
       <StackCard>
@@ -166,7 +172,6 @@ export const AdditionalInfo: React.FC = () => {
           >
             pergola_acacia_09@icloud.com
           </Link>
-          .
         </Text>
       </StackCard>
       {printButton}
