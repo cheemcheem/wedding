@@ -98,10 +98,10 @@ export const Print: React.FC<PrintProps> = ({ tabs }) => {
             >
               {Array.from(tabs).map(([name, Component]) => {
                 return (
-                  <>
+                  <React.Fragment key={name}>
                     <H2>{name}</H2>
                     <Component />
-                  </>
+                  </React.Fragment>
                 );
               })}
             </PrintContext.Provider>
