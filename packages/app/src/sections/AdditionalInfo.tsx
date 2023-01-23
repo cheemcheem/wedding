@@ -141,7 +141,9 @@ export const AdditionalInfo: React.FC = () => {
           selected={[]}
           style={{ userSelect: 'text' }}
         >
-          {taxis.map(TaxiListItem)}
+          {taxis.map((props) => (
+            <TaxiListItem {...props} key={props.name} />
+          ))}
         </List>
       </StackCard>
 

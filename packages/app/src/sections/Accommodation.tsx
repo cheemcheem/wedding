@@ -29,7 +29,7 @@ export const Accommodation: React.FC = () => {
         >
           <StudentHalls>
             {halls.map((props) => (
-              <StudentHall {...props} />
+              <StudentHall {...props} key={props.name} />
             ))}
           </StudentHalls>
         </StackLayout>
@@ -42,7 +42,9 @@ export const Accommodation: React.FC = () => {
           selected={[]}
           style={{ userSelect: 'text' }}
         >
-          {hotels.map(HotelListItem)}
+          {hotels.map((props) => (
+            <HotelListItem {...props} key={props.name} />
+          ))}
         </List>
       </StackCard>
       {printButton}
