@@ -1,10 +1,10 @@
+import React from 'react';
 import {
   Card,
   CardProps,
   StackLayout,
   StackLayoutProps,
 } from '@jpmorganchase/uitk-core';
-import React from 'react';
 
 type StackCardProps = Pick<StackLayoutProps, 'gap'> & CardProps;
 

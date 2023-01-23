@@ -1,8 +1,7 @@
-import { FlowLayout, Text, StackLayout } from '@jpmorganchase/uitk-core';
+import React from 'react';
+import { FlowLayout, StackLayout, Text } from '@jpmorganchase/uitk-core';
 import { Link, ListItem } from '@jpmorganchase/uitk-lab';
 import { useSmallMode } from '@wedding/hooks';
-import React, { useContext } from 'react';
-import { PrintContext } from '../PrintContext';
 import { PrintLink } from '../PrintLink';
 
 export interface HotelListItemProps {

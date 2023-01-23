@@ -1,7 +1,7 @@
+import React, { useContext } from 'react';
 import { FlowLayout } from '@jpmorganchase/uitk-core';
 import { Icon } from '@jpmorganchase/uitk-icons';
-import { Metric, MetricHeader, MetricContent } from '@jpmorganchase/uitk-lab';
-import React, { useContext } from 'react';
+import { Metric, MetricContent, MetricHeader } from '@jpmorganchase/uitk-lab';
 import { PrintContext } from '../PrintContext';
 
 export interface StudentHallPriceProps {

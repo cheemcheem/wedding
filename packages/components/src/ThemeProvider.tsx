@@ -1,11 +1,12 @@
+import React from 'react';
 import {
+  Breakpoints,
+  Density,
   Mode,
   ToolkitProvider,
-  Density,
-  Breakpoints,
 } from '@jpmorganchase/uitk-core';
 import { useSaveState } from '@wedding/hooks';
-import React from 'react';
+
 // xs: 0,
 // sm: 600,
 // md: 960,

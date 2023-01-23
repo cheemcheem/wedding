@@ -1,17 +1,17 @@
-import { StackLayout, Card, H3, Text, Button } from '@jpmorganchase/uitk-core';
 import React, { useContext } from 'react';
+import { H3, StackLayout, Text } from '@jpmorganchase/uitk-core';
+import { ButtonBar, Link, OrderedButton } from '@jpmorganchase/uitk-lab';
+import { PrintContext, StackCard } from '@wedding/components';
+import { PrintLink } from '@wedding/components/src/PrintLink';
 import {
+  ChapelAddress,
+  ReceptionAddress,
   addressWithLineBreaks,
   calendarAvailable,
-  ChapelAddress,
   downloadCalendar,
-  ReceptionAddress,
   rsvpURL,
 } from '@wedding/data';
-import { PrintContext, StackCard } from '@wedding/components';
-import { ButtonBar, Link, OrderedButton } from '@jpmorganchase/uitk-lab';
 import { useSmallMode } from '@wedding/hooks';
-import { PrintLink } from '@wedding/components/src/PrintLink';
 
 export const Details: React.FC = () => {
   const { printButton, printMode } = useContext(PrintContext);

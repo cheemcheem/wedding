@@ -1,7 +1,7 @@
+import React from 'react';
 import { H3, H4 } from '@jpmorganchase/uitk-core';
 import { ContentStatus } from '@jpmorganchase/uitk-lab';
 import { StackCard } from '@wedding/components';
-import React from 'react';
 
 export const Photos: React.FC = () => (
   <StackCard>

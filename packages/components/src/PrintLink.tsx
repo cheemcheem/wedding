@@ -1,5 +1,5 @@
-import { Link, LinkProps } from '@jpmorganchase/uitk-lab';
 import React, { useContext } from 'react';
+import { Link, LinkProps } from '@jpmorganchase/uitk-lab';
 import { PrintContext } from './PrintContext';
 
 interface PrintLinkProps

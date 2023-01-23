@@ -1,7 +1,7 @@
 import React, { useCallback, useLayoutEffect } from 'react';
-import { createRoot } from 'react-dom/client';
-import { Panel, H1, H2 } from '@jpmorganchase/uitk-core';
+import { H1, H2, Panel } from '@jpmorganchase/uitk-core';
 import { PrintContext } from '@wedding/components';
+import { createRoot } from 'react-dom/client';
 
 export const usePrint = (tabs: PrintProps['tabs']): (() => void) => {
   const print = useCallback(() => {

@@ -1,10 +1,11 @@
+import React, { useContext } from 'react';
 import { FlowLayout, Text } from '@jpmorganchase/uitk-core';
 import { CallSolidIcon } from '@jpmorganchase/uitk-icons';
 import { ListItem } from '@jpmorganchase/uitk-lab';
 import { useSmallMode } from '@wedding/hooks';
-import React, { useContext } from 'react';
 import { PrintContext } from '../PrintContext';
 import { PrintLink } from '../PrintLink';
+
 interface TaxiProps {
   name: string;
   number: string;

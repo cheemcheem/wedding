@@ -1,9 +1,9 @@
+import { ReturnObject, createEvent } from 'ics';
 import download from 'js-file-download';
-import { createEvent, ReturnObject } from 'ics';
 import {
-  addressWithNewLines,
   ChapelAddress,
   ReceptionAddress,
+  addressWithNewLines,
 } from './Addresses';
 
 const description = `

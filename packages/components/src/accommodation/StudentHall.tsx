@@ -1,22 +1,16 @@
+import React, { useContext } from 'react';
+import { FlowLayout, H4, StackLayout, Text } from '@jpmorganchase/uitk-core';
 import {
-  FlowLayout,
-  H3,
-  H4,
-  StackLayout,
-  Text,
-} from '@jpmorganchase/uitk-core';
-import {
+  AccordionDetails,
   AccordionSection,
   AccordionSummary,
-  AccordionDetails,
 } from '@jpmorganchase/uitk-lab';
-import React, { useContext } from 'react';
-import { PrintContext } from '../PrintContext';
 import {
   StudentHallContactDetails,
   StudentHallContactDetailsProps,
 } from './StudentHallContactDetails';
 import { StudentHallPrice, StudentHallPriceProps } from './StudentHallPrice';
+import { PrintContext } from '../PrintContext';
 
 export interface StudentHallProps extends StudentHallContactDetailsProps {
   name: string;

@@ -1,11 +1,10 @@
-import { Text, StackLayout, FlowLayout } from '@jpmorganchase/uitk-core';
+import React, { useContext } from 'react';
+import { FlowLayout, StackLayout, Text } from '@jpmorganchase/uitk-core';
 import {
   CallSolidIcon,
   GlobeSolidIcon,
   MessageSolidIcon,
 } from '@jpmorganchase/uitk-icons';
-import { Link } from '@jpmorganchase/uitk-lab';
-import React, { useContext } from 'react';
 import { PrintContext } from '../PrintContext';
 import { PrintLink } from '../PrintLink';
 

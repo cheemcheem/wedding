@@ -1,9 +1,9 @@
-import { StackLayout, H3, Text, Label } from '@jpmorganchase/uitk-core';
+import React, { useContext } from 'react';
+import { H3, Label, StackLayout, Text } from '@jpmorganchase/uitk-core';
 import { Link, List } from '@jpmorganchase/uitk-lab';
-import { PrintContext, TaxiListItem, StackCard } from '@wedding/components';
+import { PrintContext, StackCard, TaxiListItem } from '@wedding/components';
 import { PrintLink } from '@wedding/components/src/PrintLink';
 import { taxis } from '@wedding/data';
-import React, { useContext } from 'react';
 
 export const AdditionalInfo: React.FC = () => {
   const { printButton } = useContext(PrintContext);

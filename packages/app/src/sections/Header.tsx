@@ -1,6 +1,6 @@
+import React from 'react';
 import { FlowLayout } from '@jpmorganchase/uitk-core';
 import { HeaderText } from '@wedding/components';
-import React from 'react';
 
 export const Header: React.FC = () => {
   return (

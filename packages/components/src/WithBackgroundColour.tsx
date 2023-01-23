@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useEffect } from 'react';
-import { useTheme, getCharacteristicValue } from '@jpmorganchase/uitk-core';
+import { getCharacteristicValue, useTheme } from '@jpmorganchase/uitk-core';
 
 const setThemeColour = (newColour: string) => {
   const themeColour = document.createElement('meta');

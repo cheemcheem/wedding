@@ -1,6 +1,6 @@
+import React from 'react';
 import { Accordion } from '@jpmorganchase/uitk-lab';
 import { StudentHallProps } from './StudentHall';
-import React from 'react';
 
 interface StudentHallsProps {
   children:

@@ -1,28 +1,25 @@
+import * as React from 'react';
+import { useContext } from 'react';
 import {
-  Button,
   FlowLayout,
   Panel,
-  Scrim,
   StackLayout,
-  ToolkitProvider,
   useBreakpoints,
 } from '@jpmorganchase/uitk-core';
-import { Header } from './sections/Header';
-import * as React from 'react';
+import { OrderedButton } from '@jpmorganchase/uitk-lab';
+import { FontSizeContext, PrintContext } from '@wedding/components';
 import {
-  useNavigation,
-  useSmallMode,
-  usePrint,
-  useSmallerThan,
   smallModeBreakpoint,
+  useNavigation,
+  usePrint,
+  useSmallMode,
+  useSmallerThan,
 } from '@wedding/hooks';
 import { Accommodation } from './sections/Accommodation';
 import { AdditionalInfo } from './sections/AdditionalInfo';
 import { Details } from './sections/Details';
+import { Header } from './sections/Header';
 import { Photos } from './sections/Photos';
-import { useContext } from 'react';
-import { FontSizeContext, PrintContext } from '@wedding/components';
-import { ButtonBar, OrderedButton } from '@jpmorganchase/uitk-lab';
 
 const tabs = new Map([
   ['Details', Details],

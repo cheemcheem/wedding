@@ -1,15 +1,15 @@
 import React from 'react';
-import { StackLayout, H3 } from '@jpmorganchase/uitk-core';
+import { useContext } from 'react';
+import { H3, StackLayout } from '@jpmorganchase/uitk-core';
+import { List } from '@jpmorganchase/uitk-lab';
 import {
-  StudentHalls,
-  StudentHall,
   HotelListItem,
   PrintContext,
   StackCard,
+  StudentHall,
+  StudentHalls,
 } from '@wedding/components';
 import { halls, hotels } from '@wedding/data';
-import { List } from '@jpmorganchase/uitk-lab';
-import { useContext } from 'react';
 
 export const Accommodation: React.FC = () => {
   const { printButton } = useContext(PrintContext);

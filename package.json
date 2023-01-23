@@ -14,12 +14,20 @@
     "start": "BROWSER=none modular start @wedding/app",
     "build": "modular build @wedding/app",
     "test": "modular test",
-    "lint": "eslint . --ext .js,.ts,.tsx",
+    "lint:fix": "modular lint --staged --fix",
     "postinstall": "patch-package",
-    "prettier": "prettier --write ."
+    "prepare": "husky install"
   },
   "eslintConfig": {
-    "extends": "modular-app"
+    "parserOptions": {
+      "project": [
+        "./tsconfig.json"
+      ]
+    },
+    "extends": [
+      "modular-app",
+      "plugin:prettier/recommended"
+    ]
   },
   "browserslist": {
     "production": [
@@ -37,7 +45,18 @@
     "singleQuote": true,
     "trailingComma": "all",
     "printWidth": 80,
-    "proseWrap": "always"
+    "proseWrap": "always",
+    "importOrder": [
+      "^react$",
+      "<THIRD_PARTY_MODULES>",
+      "^(\\.)/",
+      "^(\\.){2}/",
+      "^(\\.){3}/",
+      "^(\\.){4}/",
+      "^(\\.){5}/",
+      "^[./]"
+    ],
+    "importOrderSortSpecifiers": true
   },
   "dependencies": {
     "@jpmorganchase/uitk-core": "^0.9.0",
@@ -45,27 +64,31 @@
     "@jpmorganchase/uitk-icons": "^0.7.0",
     "@jpmorganchase/uitk-lab": "^0.9.0",
     "@jpmorganchase/uitk-theme": "^0.7.0",
+    "ics": "^2.41.0",
+    "js-file-download": "^0.4.12",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
     "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "@trivago/prettier-plugin-sort-imports": "4.0.0",
     "@types/jest": "^29.2.2",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "eslint-config-modular-app": "^3.0.2",
-    "ics": "^2.41.0",
-    "js-file-download": "^0.4.12",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
     "modular-scripts": "^3.6.0",
     "modular-template-app": "^1.1.0",
     "modular-template-package": "^1.1.0",
-    "prettier": "^2.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.9.4"
-  },
-  "devDependencies": {
     "patch-package": "^6.5.0",
-    "raw-loader": "^4.0.2"
+    "prettier": "^2.7.1",
+    "raw-loader": "^4.0.2",
+    "typescript": "^4.9.4"
   }
 }

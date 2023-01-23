@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useMatchMediaQuery, useSaveState } from '@wedding/hooks';
-import { useSmallMode } from './useSmallMode';
 import { FlowLayout, Panel } from '@jpmorganchase/uitk-core';
 import { Dropdown, Tabstrip } from '@jpmorganchase/uitk-lab';
+import { useMatchMediaQuery, useSaveState } from '@wedding/hooks';
 import './Navigation.css';
+import { useSmallMode } from './useSmallMode';
 
 type NavigationProps = {
   locations: Map<string, React.FC>;
