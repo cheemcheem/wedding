@@ -26,14 +26,14 @@ const tabs = new Map([
   ['Accommodation', Accommodation],
   ['Additional Info', AdditionalInfo],
   ['Photos', Photos],
-]);
+] as const);
 
 const printTabs = new Map(
   Array.from(tabs).filter(([name]) => name !== 'Photos'),
 );
 
 function App(): JSX.Element {
-  const { Active, Navigation } = useNavigation(tabs);
+  const { Active, Navigation, navigateTo } = useNavigation(tabs, 'Details');
 
   const breakpoints = useBreakpoints();
   const smallerThanSM = useSmallerThan('sm');
@@ -64,7 +64,7 @@ function App(): JSX.Element {
       <FlowLayout justify="center">
         <StackLayout style={{ width }} gap={0} align="center">
           <Panel>
-            <Header />
+            <Header onClick={() => navigateTo('Details')} />
           </Panel>
           <Navigation />
           <StackLayout style={{ width }} gap={0}>

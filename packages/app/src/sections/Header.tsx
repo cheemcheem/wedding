@@ -1,17 +1,36 @@
 import React from 'react';
-import { FlowLayout } from '@jpmorganchase/uitk-core';
-import { HeaderText } from '@wedding/components';
+import { Button, FlowLayout, Text } from '@jpmorganchase/uitk-core';
 
-export const Header: React.FC = () => {
+type HeaderProps = { onClick: () => void };
+
+export const Header: React.FC<HeaderProps> = ({ onClick }) => {
   return (
     <FlowLayout align="center" justify="center" gap={0}>
-      <HeaderText>Katharine</HeaderText>
-      <HeaderText>&nbsp;</HeaderText>
-      <HeaderText>&</HeaderText>
-      <HeaderText>&nbsp;</HeaderText>
-      <HeaderText>Kathan's</HeaderText>
-      <HeaderText>&nbsp;</HeaderText>
-      <HeaderText>Wedding</HeaderText>
+      <Button
+        variant="secondary"
+        onClick={onClick}
+        style={{
+          whiteSpace: 'revert',
+          height: 'auto',
+          textTransform: 'revert',
+          letterSpacing: 'revert',
+          padding: 0,
+          margin: 0,
+          '--button-background-hover': 'revert',
+          '--button-text-color-hover': 'revert',
+        }}
+      >
+        <Text
+          style={{
+            fontFamily: "'Dancing Script', cursive",
+            textAlign: 'center',
+          }}
+          styleAs="display2"
+          maxRows={3}
+        >
+          Katharine & Kathan's Wedding
+        </Text>
+      </Button>
     </FlowLayout>
   );
 };

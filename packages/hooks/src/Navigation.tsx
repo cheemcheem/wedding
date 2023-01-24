@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { FlowLayout, Panel } from '@jpmorganchase/uitk-core';
 import { Dropdown, Tabstrip } from '@jpmorganchase/uitk-lab';
-import { useMatchMediaQuery, useSaveState } from '@wedding/hooks';
+import { useMatchMediaQuery } from '@wedding/hooks';
 import './Navigation.css';
 import { useSmallMode } from './useSmallMode';
 
-type NavigationProps = {
-  locations: Map<string, React.FC>;
-  active: string;
-  setActive: (location: string) => void;
+export type NavigationProps<T extends string> = {
+  locations: Map<T, React.FC>;
+  active: T;
+  setActive: (location: T) => void;
 };
 
-const Navigation: React.FC<NavigationProps> = ({
+export const Navigation = <T extends string>({
   active,
   locations,
   setActive,
-}) => {
+}: NavigationProps<T>): React.ReactElement => {
   const [open, setOpen] = useState(false);
   const keys = Array.from(locations.keys());
   const smallMode = useSmallMode();
@@ -76,31 +76,4 @@ const Navigation: React.FC<NavigationProps> = ({
       overflowMenu={false}
     />
   );
-};
-
-type NavigationAndActive = {
-  Navigation: React.FC;
-  Active: React.FC;
-};
-
-export const useNavigation = (
-  tabs: Map<string, React.FC>,
-): NavigationAndActive => {
-  const [activeTab, onActiveChange] = useSaveState<string>(
-    'wedding-app-active-tab-dev=string',
-    'Details',
-  );
-
-  const value: NavigationProps = {
-    active: activeTab,
-    locations: tabs,
-    setActive: onActiveChange,
-  };
-
-  const ActiveComponent = tabs.get(activeTab) || (() => null);
-
-  return {
-    Navigation: () => <Navigation {...value} />,
-    Active: () => <ActiveComponent />,
-  };
 };

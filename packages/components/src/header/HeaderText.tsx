@@ -1,7 +1,10 @@
 import React, { PropsWithChildren } from 'react';
-import { Text } from '@jpmorganchase/uitk-core';
+import { Text, TextProps } from '@jpmorganchase/uitk-core';
 
-export const HeaderText: React.FC<PropsWithChildren> = ({ children }) => {
+export const HeaderText: React.FC<PropsWithChildren<TextProps<'div'>>> = ({
+  children,
+  ...rest
+}) => {
   return (
     <Text
       style={{
@@ -9,6 +12,7 @@ export const HeaderText: React.FC<PropsWithChildren> = ({ children }) => {
       }}
       styleAs="display2"
       children={children}
+      {...rest}
     />
   );
 };
