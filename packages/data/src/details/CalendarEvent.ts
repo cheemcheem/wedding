@@ -5,20 +5,21 @@ import {
   ReceptionAddress,
   addressWithNewLines,
 } from './Addresses';
+import { timings } from '../timings/Timings';
 
-const description = `
-13:30	-> 13:50	Arrive at Chapel
-14:00	-> 15:00	Wedding Ceremony
-15:15	Drinks Reception
-16:45	Receiving Line
-17:15	Speeches
-17:45	Wedding Breakfast
-19:45	Comfort Break
-20:15	Cake Cutting 
-20:30	Ceilidh Band
-00:30	Bar Closes
-01:00	Evening Ends
-
+const descriptionTimings = timings
+  .map(({ startTime, endTime, eventName }, index) => {
+    if (endTime.length > 0) {
+      return `${startTime} -> ${endTime} \t${eventName}`;
+    }
+    if (startTime.toLocaleLowerCase() === 'midnight') {
+      startTime = '00:00';
+    }
+    return `${startTime}\t\t\t\t${eventName}`;
+  })
+  .reduce((a, b) => `${a}\n${b}`);
+const description = `Timings:
+${descriptionTimings}
 
 ${ChapelAddress.name} Address: 
 ${addressWithNewLines(ChapelAddress.address)} 
@@ -33,9 +34,10 @@ const event = createEvent({
   title: "Katharine & Kathan's Wedding",
   description,
   start: [2023, 8, 12, 13, 30],
-  end: [2023, 8, 13, 1, 0],
+  end: [2023, 8, 13, 0, 0],
   busyStatus: 'BUSY',
   location: 'St. Andrews, Scotland',
+  url: window.location.href,
 });
 
 const isCalendarAvailable = (
