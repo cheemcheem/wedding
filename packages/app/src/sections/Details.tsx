@@ -36,7 +36,7 @@ export const Details: React.FC = () => {
 
   return (
     <StackLayout>
-      <Text styleAs="h2">Saturday 12th August 2023</Text>
+      <Text styleAs="h1">Saturday 12th August 2023</Text>
       <StackCard>
         <H3 styleAs="h1">Wedding Ceremony</H3>
         <Text styleAs="h3">
@@ -50,10 +50,11 @@ export const Details: React.FC = () => {
             {addressWithLineBreaks(ChapelAddress.address)}
           </Link>
         </Text>
-        <Text styleAs="h3">2-3pm</Text>
+        <Text styleAs="h3">2:00pm - 3:00pm</Text>
         <Text styleAs="h3">
-          All guests must arrive at the chapel between 1:30pm and 1:50pm. Guests
-          who arrive later than 1:50pm will unfortunately be denied entry.
+          All guests should arrive at the chapel between 1:30pm and 1:50pm.
+          Guests who arrive later than 1:50pm will unfortunately be denied
+          entry.
         </Text>
       </StackCard>
       <StackCard>
@@ -69,11 +70,11 @@ export const Details: React.FC = () => {
             {addressWithLineBreaks(ReceptionAddress.address)}
           </Link>
         </Text>
-        <Text styleAs="h3">3:15pm-1am</Text>
+        <Text styleAs="h3">4:00pm - midnight</Text>
         <Text styleAs="h3">
-          The Wedding Breakfast will consist of a set menu. Please indicate any
-          dietary requirements you have (e.g. vegetarian, vegan, gluten free,
-          nut allergy) on our RSVP form{' '}
+          The Wedding Breakfast will be a set menu. Please indicate any dietary
+          requirements you have (e.g. vegetarian, vegan, gluten free, nut
+          allergy) on our RSVP form{' '}
           {printMode ? <PrintLink href={rsvpURL}>here</PrintLink> : 'below'}.
         </Text>
       </StackCard>

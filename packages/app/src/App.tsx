@@ -20,10 +20,12 @@ import { AdditionalInfo } from './sections/AdditionalInfo';
 import { Details } from './sections/Details';
 import { Header } from './sections/Header';
 import { Photos } from './sections/Photos';
+import { Timings } from './sections/Timings';
 
 const tabs = new Map([
   ['Details', Details],
   ['Accommodation', Accommodation],
+  ['Timings', Timings],
   ['Additional Info', AdditionalInfo],
   ['Photos', Photos],
 ] as const);

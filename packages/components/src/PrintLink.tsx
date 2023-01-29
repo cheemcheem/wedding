@@ -6,11 +6,13 @@ interface PrintLinkProps
   extends Omit<LinkProps, 'children' | 'href'>,
     Required<Pick<LinkProps, 'href'>> {
   prefix?: 'tel:' | 'mailto:';
+  query?: string;
   children?: string;
 }
 
 export const PrintLink: React.FC<PrintLinkProps> = ({
   prefix,
+  query,
   children,
   href,
   ...rest
@@ -27,7 +29,7 @@ export const PrintLink: React.FC<PrintLinkProps> = ({
       )}
     </>
   ) : (
-    <Link {...rest} href={`${prefix ?? ''}${href}`}>
+    <Link {...rest} href={`${prefix ?? ''}${href}${query ?? ''}`}>
       {children || (prefix ? href : 'website')}
     </Link>
   );

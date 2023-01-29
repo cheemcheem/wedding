@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { H3, Label, StackLayout, Text } from '@jpmorganchase/uitk-core';
-import { Link, List } from '@jpmorganchase/uitk-lab';
+import { H3, StackLayout, Text } from '@jpmorganchase/uitk-core';
+import { List } from '@jpmorganchase/uitk-lab';
 import { PrintContext, StackCard, TaxiListItem } from '@wedding/components';
 import { PrintLink } from '@wedding/components/src/PrintLink';
 import { taxis } from '@wedding/data';
@@ -13,81 +13,31 @@ export const AdditionalInfo: React.FC = () => {
       <StackCard>
         <H3 styleAs="h1">Dress Code</H3>
         <Text styleAs="h3">
-          The wedding dress code is{' '}
-          <PrintLink
-            href="https://www.brides.com/cocktail-attire-wedding-4844364"
-            target="_blank"
-            styleAs="h3"
-            style={{ display: 'inline-block' }}
-          >
-            cocktail&nbsp;attire
-          </PrintLink>{' '}
-          / semi-formal.
+          The wedding dress code is cocktail attire / semi&#8209;formal.
         </Text>
       </StackCard>
       <StackCard>
         <H3 styleAs="h1">Photography</H3>
         <Text styleAs="h3">
-          St Salvator's Chapel{' '}
-          <Label
-            styleAs="h3"
-            style={{
-              textDecoration: 'underline',
-              color: 'var(--uitk-palette-negative-foreground, red)',
-            }}
-          >
-            strictly
-          </Label>{' '}
-          prohibits personal photography and videography during wedding
-          ceremonies.
+          St Salvator's Chapel prohibits personal photography and videography
+          during wedding ceremonies.
         </Text>
         <Text styleAs="h3">
-          Mobile phones{' '}
-          <Label
-            styleAs="h3"
-            style={{
-              textDecoration: 'underline',
-              color: 'var(--uitk-palette-negative-foreground, red)',
-            }}
-          >
-            must
-          </Label>{' '}
-          be switched off for the duration of the ceremony.
+          Mobile phones should be switched off for the duration of the ceremony.
         </Text>
       </StackCard>
       <StackCard>
         <H3 styleAs="h1">Confetti</H3>
         <Text styleAs="h3">
-          Confetti throwing is{' '}
-          <Label
-            styleAs="h3"
-            style={{
-              textDecoration: 'underline',
-              color: 'var(--uitk-palette-negative-foreground, red)',
-            }}
-          >
-            not
-          </Label>{' '}
-          allowed at St Salvator's Chapel. This also applies to rice and similar
-          items.
+          Confetti throwing is not allowed at St Salvator's Chapel. This also
+          applies to rice and similar items.
         </Text>
       </StackCard>
       <StackCard>
         <H3 styleAs="h1">Parking</H3>
         <Text styleAs="h3">
           Please note that there is no parking available at St Salvator's
-          Chapel. Car parking spaces outside the Chapel are reserved for the
-          Bridal Party{' '}
-          <Label
-            styleAs="h3"
-            style={{
-              textDecoration: 'underline',
-              color: 'var(--uitk-palette-negative-foreground, red)',
-            }}
-          >
-            only
-          </Label>
-          .
+          Chapel.
         </Text>
         <Text styleAs="h3">
           Car parks in St Andrews town centre are{' '}
@@ -151,30 +101,24 @@ export const AdditionalInfo: React.FC = () => {
       <StackCard>
         <H3 styleAs="h1">Gifts</H3>
         <Text styleAs="h3">
-          Please no gifts. Your presence is the only gift we need!
-        </Text>
-        <Text styleAs="h3">
-          Consider donating instead to{' '}
-          <PrintLink
-            styleAs="h3"
-            href="https://www.wateraid.org/uk"
-            target="_blank"
-          >
-            WaterAid
-          </PrintLink>
+          Please no gifts! The pleasure of your company is the only gift we hope
+          for.
         </Text>
       </StackCard>
       <StackCard>
-        <H3 styleAs="h1">Contact us</H3>
+        <H3 styleAs="h1">Any Further Questions?</H3>
         <Text styleAs="h3">
-          If you have any further questions, please email us at{' '}
-          <Link
+          If you have any further questions, please{' '}
+          <PrintLink
             styleAs="h3"
-            href="mailto:pergola_acacia_09@icloud.com?subject=Katharine%20%26%20Kathan's%20Wedding%20Question"
+            prefix="mailto:"
+            href="pergola_acacia_09@icloud.com"
+            query="?subject=Katharine%20%26%20Kathan's%20Wedding%20Question"
             style={{ wordBreak: 'break-all' }}
           >
-            pergola_acacia_09@icloud.com
-          </Link>
+            contact us
+          </PrintLink>
+          .
         </Text>
       </StackCard>
       {printButton}

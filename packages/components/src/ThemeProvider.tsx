@@ -7,6 +7,7 @@ import {
 } from '@jpmorganchase/uitk-core';
 import { useSaveState } from '@wedding/hooks';
 
+// defaults
 // xs: 0,
 // sm: 600,
 // md: 960,
@@ -15,7 +16,7 @@ import { useSaveState } from '@wedding/hooks';
 const breakpoints: Breakpoints = {
   xs: 0,
   sm: 300,
-  md: 500,
+  md: 600,
   lg: 1920,
   xl: 2560,
 };
