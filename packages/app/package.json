@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@wedding/components": "^1.0.0",
+    "@wedding/data": "^1.0.0",
     "@wedding/hooks": "^1.0.0"
   },
   "version": "1.0.0"

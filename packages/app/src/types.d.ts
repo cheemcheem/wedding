@@ -1,5 +1,3 @@
-import 'csstype';
-
 declare module 'csstype' {
   interface Properties {
     // Add a missing property
