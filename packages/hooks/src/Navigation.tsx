@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { FlowLayout } from '@salt-ds/core';
-import { Dropdown, Panel, Tabstrip } from '@salt-ds/lab';
+import { Dropdown, ListItem, Panel, Tabstrip } from '@salt-ds/lab';
 import { useMatchMediaQuery } from '@wedding/hooks';
 import './Navigation.css';
 import { useSmallMode } from './useSmallMode';
@@ -20,6 +20,17 @@ export const Navigation = <T extends string>({
   const keys = Array.from(locations.keys());
   const smallMode = useSmallMode();
   const isTouchScreen = !useMatchMediaQuery('(hover: hover)');
+  const NavigationDropdownItem = useMemo(() => {
+    const Component: typeof ListItem = (props) => {
+      return (
+        <ListItem
+          onClick={open ? () => setOpen(false) : undefined}
+          {...props}
+        />
+      );
+    };
+    return Component;
+  }, [open]);
   return smallMode ? (
     <Panel
       variant={open ? 'secondary' : 'primary'}
@@ -32,6 +43,7 @@ export const Navigation = <T extends string>({
         <Dropdown
           isOpen={open}
           onOpenChange={setOpen}
+          ListItem={NavigationDropdownItem}
           ListProps={{
             className: 'dropdown-from-top',
             ...(isTouchScreen
