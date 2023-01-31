@@ -1,6 +1,6 @@
 import React from 'react';
-import { H3, H4 } from '@jpmorganchase/uitk-core';
-import { ContentStatus } from '@jpmorganchase/uitk-lab';
+import { H3, H4 } from '@salt-ds/core';
+import { ContentStatus } from '@salt-ds/lab';
 import { StackCard } from '@wedding/components';
 
 export const Photos: React.FC = () => (

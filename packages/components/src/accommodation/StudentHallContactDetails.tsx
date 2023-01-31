@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { FlowLayout, StackLayout, Text } from '@jpmorganchase/uitk-core';
+import { FlexLayout, FlowLayout, StackLayout, Text } from '@salt-ds/core';
 import {
   CallSolidIcon,
   GlobeSolidIcon,
   MessageSolidIcon,
-} from '@jpmorganchase/uitk-icons';
+} from '@salt-ds/icons';
 import { PrintContext } from '../PrintContext';
 import { PrintLink } from '../PrintLink';
 
@@ -24,27 +24,27 @@ export const StudentHallContactDetails: React.FC<
         <FlowLayout align="center" gap={1}>
           <CallSolidIcon
             style={{
-              '--icon-color': 'var(--uitk-palette-success-foreground, green)',
+              '--icon-color': 'var(--salt-palette-success-foreground, green)',
             }}
           />
           <Text>
             <PrintLink prefix="tel:" href={telephone} />
           </Text>
         </FlowLayout>
-        <FlowLayout align="center" gap={1} wrap={false}>
+        <FlexLayout align="center" gap={1} wrap={false}>
           <MessageSolidIcon
             style={{
-              '--icon-color': 'var(--uitk-palette-info-foreground, steelblue)',
+              '--icon-color': 'var(--salt-palette-info-foreground, steelblue)',
             }}
           />
           <Text maxRows={1}>
             <PrintLink prefix="mailto:" href={email} />
           </Text>
-        </FlowLayout>
+        </FlexLayout>
         <FlowLayout align="center" gap={1}>
           <GlobeSolidIcon
             style={{
-              '--icon-color': 'var(--uitk-palette-info-foreground, steelblue)',
+              '--icon-color': 'var(--salt-palette-info-foreground, steelblue)',
             }}
           />
           <Text>

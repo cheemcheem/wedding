@@ -1,6 +1,6 @@
 import React from 'react';
-import { FlowLayout, StackLayout, Text } from '@jpmorganchase/uitk-core';
-import { Link, ListItem } from '@jpmorganchase/uitk-lab';
+import { FlexLayout, Link, StackLayout, Text } from '@salt-ds/core';
+import { ListItem } from '@salt-ds/lab';
 import { useSmallMode } from '@wedding/hooks';
 import { PrintLink } from '../PrintLink';
 
@@ -18,7 +18,7 @@ export const HotelListItem: React.FC<HotelListItemProps> = ({ name, url }) => {
       </Link>
     </StackLayout>
   ) : (
-    <FlowLayout
+    <FlexLayout
       style={{ width: '100%' }}
       justify="space-between"
       wrap={false}
@@ -28,7 +28,7 @@ export const HotelListItem: React.FC<HotelListItemProps> = ({ name, url }) => {
         {name}
       </Text>
       <PrintLink href={url} target="_blank" />
-    </FlowLayout>
+    </FlexLayout>
   );
   return <ListItem style={{ padding: 0, cursor: 'auto' }}>{Item}</ListItem>;
 };

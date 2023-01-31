@@ -1,5 +1,6 @@
 import React, { useCallback, useLayoutEffect } from 'react';
-import { H1, H2, Panel } from '@jpmorganchase/uitk-core';
+import { H1, H2 } from '@salt-ds/core';
+import { Panel } from '@salt-ds/lab';
 import { PrintContext } from '@wedding/components';
 import { createRoot } from 'react-dom/client';
 
@@ -46,17 +47,17 @@ svg, button {
   display: none!important;
 }
 
-.uitkList {
+.saltList {
   counter-reset: list_item;
 }
 
-.uitkListItem:not(.uitkListItem-proxy)::before {
+.saltListItem:not(.saltListItem-proxy)::before {
   counter-increment: list_item;
   content: counter(list_item) ". ";
   width: 4ch;
 }
 
-.uitkListItem, .uitkListItem .uitkFlexLayout {
+.saltListItem, .saltListItem .saltFlexLayout {
   display: flex;
 }
 

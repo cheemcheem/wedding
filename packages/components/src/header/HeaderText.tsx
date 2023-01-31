@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { Text, TextProps } from '@jpmorganchase/uitk-core';
+import { Text, TextProps } from '@salt-ds/core';
 
 export const HeaderText: React.FC<PropsWithChildren<TextProps<'div'>>> = ({
   children,

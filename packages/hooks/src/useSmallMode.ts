@@ -1,4 +1,4 @@
-import { Breakpoints, useBreakpoints } from '@jpmorganchase/uitk-core';
+import { Breakpoints, useBreakpoints } from '@salt-ds/core';
 import { useMatchMediaQuery } from './useMatchMediaQuery';
 
 export const smallModeBreakpoint: keyof Breakpoints = 'md';

@@ -1,4 +1,4 @@
-import { UserGroupSolidIcon, UserSolidIcon } from '@jpmorganchase/uitk-icons';
+import { UserGroupSolidIcon, UserSolidIcon } from '@salt-ds/icons';
 import { StudentHallProps } from '@wedding/components';
 
 export const halls: StudentHallProps[] = [

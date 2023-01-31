@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { StackLayout } from '@jpmorganchase/uitk-core';
-import { Grid, GridColumn } from '@jpmorganchase/uitk-grid';
+import { StackLayout } from '@salt-ds/core';
+import { Grid, GridColumn } from '@salt-ds/data-grid';
 import { PrintContext } from '@wedding/components';
 import { Timing, timings } from '@wedding/data';
 import { useSmallMode } from '@wedding/hooks';

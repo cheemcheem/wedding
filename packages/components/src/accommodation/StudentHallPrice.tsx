@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { FlowLayout } from '@jpmorganchase/uitk-core';
-import { Icon } from '@jpmorganchase/uitk-icons';
-import { Metric, MetricContent, MetricHeader } from '@jpmorganchase/uitk-lab';
+import { FlexLayout, FlowLayout } from '@salt-ds/core';
+import { Icon } from '@salt-ds/icons';
+import { Metric, MetricContent, MetricHeader } from '@salt-ds/lab';
 import { PrintContext } from '../PrintContext';
 
 export interface StudentHallPriceProps {
@@ -25,7 +25,7 @@ export const StudentHallPrice: React.FC<StudentHallPriceProps> = ({
     : 'No discount available';
   const { printMode } = useContext(PrintContext);
   return (
-    <FlowLayout justify="space-between" wrap={false}>
+    <FlexLayout justify="space-between" wrap={false}>
       <Metric
         size="small"
         align="left"
@@ -40,6 +40,6 @@ export const StudentHallPrice: React.FC<StudentHallPriceProps> = ({
         ))}
       </FlowLayout>
       {printMode && <br />}
-    </FlowLayout>
+    </FlexLayout>
   );
 };

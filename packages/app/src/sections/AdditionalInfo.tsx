@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { H3, StackLayout, Text } from '@jpmorganchase/uitk-core';
-import { List } from '@jpmorganchase/uitk-lab';
+import { H3, StackLayout, Text } from '@salt-ds/core';
+import { List } from '@salt-ds/lab';
 import { PrintContext, StackCard, TaxiListItem } from '@wedding/components';
 import { PrintLink } from '@wedding/components/src/PrintLink';
 import { taxis } from '@wedding/data';

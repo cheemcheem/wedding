@@ -1,10 +1,9 @@
 import React from 'react';
 import {
-  Card,
-  CardProps,
   StackLayout,
   StackLayoutProps,
-} from '@jpmorganchase/uitk-core';
+} from '@salt-ds/core';
+import { Card, CardProps } from "@salt-ds/lab";
 
 type StackCardProps = Pick<StackLayoutProps, 'gap'> & CardProps;
 

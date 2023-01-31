@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FlowLayout, Text } from '@jpmorganchase/uitk-core';
+import { Button, FlowLayout, Text } from '@salt-ds/core';
 
 type HeaderProps = { onClick: () => void };
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { FlowLayout, Text } from '@jpmorganchase/uitk-core';
-import { CallSolidIcon } from '@jpmorganchase/uitk-icons';
-import { ListItem } from '@jpmorganchase/uitk-lab';
+import { FlexLayout, FlowLayout, Text } from '@salt-ds/core';
+import { CallSolidIcon } from '@salt-ds/icons';
+import { ListItem } from '@salt-ds/lab';
 import { useSmallMode } from '@wedding/hooks';
 import { PrintContext } from '../PrintContext';
 import { PrintLink } from '../PrintLink';
@@ -17,7 +17,7 @@ export const TaxiListItem: React.FC<TaxiProps> = ({ name, number }) => {
   const href = `tel:${number}`;
 
   const Item = (
-    <FlowLayout
+    <FlexLayout
       style={{ width: '100%' }}
       align="center"
       justify="space-between"
@@ -28,7 +28,7 @@ export const TaxiListItem: React.FC<TaxiProps> = ({ name, number }) => {
       <FlowLayout gap={1}>
         <CallSolidIcon
           style={{
-            '--icon-color': 'var(--uitk-palette-success-foreground)',
+            '--icon-color': 'var(--salt-palette-success-foreground)',
           }}
         />
         {!isSmallMode &&
@@ -38,7 +38,7 @@ export const TaxiListItem: React.FC<TaxiProps> = ({ name, number }) => {
             <Text>{number}</Text>
           ))}
       </FlowLayout>
-    </FlowLayout>
+    </FlexLayout>
   );
   return (
     <ListItem

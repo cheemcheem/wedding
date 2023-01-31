@@ -2,11 +2,10 @@ import * as React from 'react';
 import { useContext } from 'react';
 import {
   FlowLayout,
-  Panel,
   StackLayout,
   useBreakpoints,
-} from '@jpmorganchase/uitk-core';
-import { OrderedButton } from '@jpmorganchase/uitk-lab';
+} from '@salt-ds/core';
+import { OrderedButton, Panel } from '@salt-ds/lab';
 import { FontSizeContext, PrintContext } from '@wedding/components';
 import {
   smallModeBreakpoint,

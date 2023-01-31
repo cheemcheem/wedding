@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { FlowLayout, H4, StackLayout, Text } from '@jpmorganchase/uitk-core';
+import { FlowLayout, H4, StackLayout, Text } from '@salt-ds/core';
 import {
   AccordionDetails,
   AccordionSection,
   AccordionSummary,
-} from '@jpmorganchase/uitk-lab';
+} from '@salt-ds/lab';
 import {
   StudentHallContactDetails,
   StudentHallContactDetailsProps,
@@ -40,7 +40,7 @@ export const StudentHall: React.FC<StudentHallProps> = ({
         <StackLayout
           style={{
             paddingRight:
-              'var(--uitkCard-padding, calc(var(--uitk-size-unit) * 3))',
+              'var(--saltCard-padding, calc(var(--salt-size-unit) * 3))',
           }}
           gap={2}
           separators

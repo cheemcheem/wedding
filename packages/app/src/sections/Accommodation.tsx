@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
-import { H3, StackLayout } from '@jpmorganchase/uitk-core';
-import { List } from '@jpmorganchase/uitk-lab';
+import { H3, StackLayout } from '@salt-ds/core';
+import { List } from '@salt-ds/lab';
 import {
   HotelListItem,
   PrintContext,
@@ -20,11 +20,11 @@ export const Accommodation: React.FC = () => {
         <StackLayout
           style={{
             width:
-              'calc(100% + 2 * var(--uitkCard-padding, calc(var(--uitk-size-unit) * 3)))',
+              'calc(100% + 2 * var(--saltCard-padding, calc(var(--salt-size-unit) * 3)))',
             marginLeft:
-              'calc(-1 * var(--uitkCard-padding, calc(var(--uitk-size-unit) * 3)))',
+              'calc(-1 * var(--saltCard-padding, calc(var(--salt-size-unit) * 3)))',
             marginBottom:
-              'calc(-1 * var(--uitkCard-padding, calc(var(--uitk-size-unit) * 3)))',
+              'calc(-1 * var(--saltCard-padding, calc(var(--salt-size-unit) * 3)))',
           }}
         >
           <StudentHalls>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FlowLayout, Panel } from '@jpmorganchase/uitk-core';
-import { Dropdown, Tabstrip } from '@jpmorganchase/uitk-lab';
+import { FlowLayout } from '@salt-ds/core';
+import { Dropdown, Tabstrip, Panel } from '@salt-ds/lab';
 import { useMatchMediaQuery } from '@wedding/hooks';
 import './Navigation.css';
 import { useSmallMode } from './useSmallMode';
@@ -25,7 +25,7 @@ export const Navigation = <T extends string>({
       variant={open ? 'secondary' : 'primary'}
       style={{
         padding: 0,
-        height: 'var(--uitkTabs-tabstrip-height, var(--uitk-size-stackable))',
+        height: 'var(--saltTabs-tabstrip-height, var(--salt-size-stackable))',
       }}
     >
       <FlowLayout align="center" style={{ height: '100%' }}>
@@ -56,7 +56,7 @@ export const Navigation = <T extends string>({
           width="100vw"
           style={{
             height:
-              'var(--uitkTabs-tabstrip-height, var(--uitk-size-stackable))',
+              'var(--saltTabs-tabstrip-height, var(--salt-size-stackable))',
             display: 'flex',
             alignItems: 'center',
           }}

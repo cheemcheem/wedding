@@ -3,8 +3,8 @@ import {
   Breakpoints,
   Density,
   Mode,
-  ToolkitProvider,
-} from '@jpmorganchase/uitk-core';
+  SaltProvider,
+} from '@salt-ds/core';
 import { useSaveState } from '@wedding/hooks';
 
 // defaults
@@ -51,10 +51,10 @@ export const ThemeProvider: React.FC<React.PropsWithChildren> = ({
   }, []);
 
   return (
-    <ToolkitProvider density={density} mode={theme} breakpoints={breakpoints}>
+    <SaltProvider density={density} mode={theme} breakpoints={breakpoints}>
       <FontSizeContext.Provider value={{ setFontSize: setDensity }}>
         {children}
       </FontSizeContext.Provider>
-    </ToolkitProvider>
+    </SaltProvider>
   );
 };

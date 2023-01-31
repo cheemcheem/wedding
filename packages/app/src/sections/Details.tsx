@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { H3, StackLayout, Text } from '@jpmorganchase/uitk-core';
-import { ButtonBar, Link, OrderedButton } from '@jpmorganchase/uitk-lab';
+import { H3, StackLayout, Text, Link } from '@salt-ds/core';
+import { ButtonBar, OrderedButton } from '@salt-ds/lab';
 import { PrintContext, StackCard } from '@wedding/components';
 import { PrintLink } from '@wedding/components/src/PrintLink';
 import {

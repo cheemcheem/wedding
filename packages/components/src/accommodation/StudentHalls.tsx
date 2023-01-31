@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion } from '@jpmorganchase/uitk-lab';
+import { Accordion } from '@salt-ds/lab';
 import { StudentHallProps } from './StudentHall';
 
 interface StudentHallsProps {

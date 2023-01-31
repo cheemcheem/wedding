@@ -1,5 +1,5 @@
 import React from 'react';
-import '@jpmorganchase/uitk-theme/index.css';
+import '@salt-ds/theme/index.css';
 import { ThemeProvider, WithBackgrounColour } from '@wedding/components';
 import { createRoot } from 'react-dom/client';
 import App from './App';

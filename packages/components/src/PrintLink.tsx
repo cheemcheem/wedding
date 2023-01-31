@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { Link, LinkProps } from '@jpmorganchase/uitk-lab';
+import '@salt-ds/lab';
 import { PrintContext } from './PrintContext';
+import { Link, LinkProps } from "@salt-ds/core";
 
 interface PrintLinkProps
   extends Omit<LinkProps, 'children' | 'href'>,
