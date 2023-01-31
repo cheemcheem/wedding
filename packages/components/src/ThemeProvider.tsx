@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Breakpoints,
-  Density,
-  Mode,
-  SaltProvider,
-} from '@salt-ds/core';
+import { Breakpoints, Density, Mode, SaltProvider } from '@salt-ds/core';
 import { useSaveState } from '@wedding/hooks';
 
 // defaults

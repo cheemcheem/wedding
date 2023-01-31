@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FlowLayout } from '@salt-ds/core';
-import { Dropdown, Tabstrip, Panel } from '@salt-ds/lab';
+import { Dropdown, Panel, Tabstrip } from '@salt-ds/lab';
 import { useMatchMediaQuery } from '@wedding/hooks';
 import './Navigation.css';
 import { useSmallMode } from './useSmallMode';

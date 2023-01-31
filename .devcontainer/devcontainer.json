@@ -20,7 +20,7 @@
   ],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "sudo chown node node_modules && yarn install && sudo chmod +x .husky/pre-commit",
+  "postCreateCommand": "sudo chown node node_modules && yarn install && sudo chmod +x .husky/pre-commit && git config --global --add safe.directory ${containerWorkspaceFolder}",
 
   "features": {
     "git": "latest"

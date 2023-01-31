@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { H3, StackLayout, Text, Link } from '@salt-ds/core';
+import { H3, Link, StackLayout, Text } from '@salt-ds/core';
 import { ButtonBar, OrderedButton } from '@salt-ds/lab';
 import { PrintContext, StackCard } from '@wedding/components';
 import { PrintLink } from '@wedding/components/src/PrintLink';

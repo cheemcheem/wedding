@@ -1,9 +1,6 @@
 import React from 'react';
-import {
-  StackLayout,
-  StackLayoutProps,
-} from '@salt-ds/core';
-import { Card, CardProps } from "@salt-ds/lab";
+import { StackLayout, StackLayoutProps } from '@salt-ds/core';
+import { Card, CardProps } from '@salt-ds/lab';
 
 type StackCardProps = Pick<StackLayoutProps, 'gap'> & CardProps;
 

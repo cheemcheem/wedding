@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import {
-  FlowLayout,
-  StackLayout,
-  useBreakpoints,
-} from '@salt-ds/core';
+import { FlowLayout, StackLayout, useBreakpoints } from '@salt-ds/core';
 import { OrderedButton, Panel } from '@salt-ds/lab';
 import { FontSizeContext, PrintContext } from '@wedding/components';
 import {
