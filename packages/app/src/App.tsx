@@ -24,8 +24,8 @@ import { Timings } from './sections/Timings';
 
 const tabs = new Map([
   ['Details', Details],
-  ['Accommodation', Accommodation],
   ['Timings', Timings],
+  ['Accommodation', Accommodation],
   ['Additional Info', AdditionalInfo],
   ['Photos', Photos],
 ] as const);
