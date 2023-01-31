@@ -3,9 +3,11 @@ import { StackLayout } from '@jpmorganchase/uitk-core';
 import { Grid, GridColumn } from '@jpmorganchase/uitk-grid';
 import { PrintContext } from '@wedding/components';
 import { Timing, timings } from '@wedding/data';
+import { useSmallMode } from '@wedding/hooks';
 
 export const Timings: React.FC = () => {
   const { printMode, printButton } = useContext(PrintContext);
+  const isSmallMode = useSmallMode();
   if (printMode) {
     return (
       <table>
@@ -38,7 +40,7 @@ export const Timings: React.FC = () => {
           style={{
             height: 'var(--grid-total-height)',
             pointerEvents: 'none',
-            width: 'var(--grid-total-width)',
+            width: isSmallMode ? 'var(--grid-total-width)' : undefined,
           }}
         >
           <GridColumn<Timing>
