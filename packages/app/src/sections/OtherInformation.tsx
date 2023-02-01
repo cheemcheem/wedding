@@ -5,7 +5,7 @@ import { PrintContext, StackCard, TaxiListItem } from '@wedding/components';
 import { PrintLink } from '@wedding/components/src/PrintLink';
 import { taxis } from '@wedding/data';
 
-export const AdditionalInfo: React.FC = () => {
+export const OtherInformation: React.FC = () => {
   const { printButton } = useContext(PrintContext);
 
   return (
@@ -114,9 +114,8 @@ export const AdditionalInfo: React.FC = () => {
             prefix="mailto:"
             href="pergola_acacia_09@icloud.com"
             query="?subject=Katharine%20%26%20Kathan's%20Wedding%20Question"
-            style={{ wordBreak: 'break-all' }}
           >
-            contact us
+            contact&nbsp;us
           </PrintLink>
           .
         </Text>

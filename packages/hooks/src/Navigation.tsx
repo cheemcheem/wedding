@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { FlowLayout } from '@salt-ds/core';
+import { Button, Text } from '@salt-ds/core';
+import { ChevronDownIcon } from '@salt-ds/icons';
 import { Dropdown, ListItem, Panel, Tabstrip } from '@salt-ds/lab';
 import { useMatchMediaQuery } from '@wedding/hooks';
 import './Navigation.css';
@@ -21,59 +22,65 @@ export const Navigation = <T extends string>({
   const smallMode = useSmallMode();
   const isTouchScreen = !useMatchMediaQuery('(hover: hover)');
   const NavigationDropdownItem = useMemo(() => {
-    const Component: typeof ListItem = (props) => {
+    const Component: typeof ListItem = ({ children, label, ...props }) => {
       return (
-        <ListItem
-          onClick={open ? () => setOpen(false) : undefined}
-          {...props}
-        />
+        <ListItem onClick={open ? () => setOpen(false) : undefined} {...props}>
+          <Text styleAs="h3">
+            {children}
+            {label}
+          </Text>
+        </ListItem>
       );
     };
     return Component;
   }, [open]);
   return smallMode ? (
     <Panel
-      variant={open ? 'secondary' : 'primary'}
+      variant={'secondary'}
       style={{
         padding: 0,
-        height: 'var(--saltTabs-tabstrip-height, var(--salt-size-stackable))',
+        '--saltButton-padding': '2rem',
+        '--saltButton-height': 'calc(var(--salt-size-base) * 2)',
       }}
     >
-      <FlowLayout align="center" style={{ height: '100%' }}>
-        <Dropdown
-          isOpen={open}
-          onOpenChange={setOpen}
-          ListItem={NavigationDropdownItem}
-          ListProps={{
-            className: 'dropdown-from-top',
-            ...(isTouchScreen
-              ? {
-                  onHighlight: (index) => {
-                    if (index < 0) return;
-                    setTimeout(() => {
-                      setActive(Array.from(locations)[index][0]);
-                      setOpen(false);
-                    });
-                  },
-                  highlightedIndex: keys.indexOf(active),
-                }
-              : {}),
-          }}
-          className="dropdown-incremental-fade"
-          source={keys}
-          selected={active}
-          onSelectionChange={(_, selected) =>
-            selected && keys.indexOf(selected) >= 0 && setActive(selected)
-          }
-          width="100vw"
-          style={{
-            height:
-              'var(--saltTabs-tabstrip-height, var(--salt-size-stackable))',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        />
-      </FlowLayout>
+      <Dropdown
+        triggerComponent={
+          <Button
+            variant="secondary"
+            className="saltDropdownButton saltDropdownButton-content"
+          >
+            <Text className="saltDropdownButton-buttonLabel" styleAs="h2">
+              {active}
+            </Text>{' '}
+            <ChevronDownIcon />
+          </Button>
+        }
+        isOpen={open}
+        onOpenChange={setOpen}
+        ListItem={NavigationDropdownItem}
+        ListProps={{
+          className: 'dropdown-from-top',
+          ...(isTouchScreen
+            ? {
+                onHighlight: (index) => {
+                  if (index < 0) return;
+                  setTimeout(() => {
+                    setActive(Array.from(locations)[index][0]);
+                    setOpen(false);
+                  });
+                },
+                highlightedIndex: keys.indexOf(active),
+              }
+            : {}),
+        }}
+        className="dropdown-incremental-fade"
+        source={keys}
+        selected={active}
+        onSelectionChange={(_, selected) =>
+          selected && keys.indexOf(selected) >= 0 && setActive(selected)
+        }
+        width="100vw"
+      />
     </Panel>
   ) : (
     <Tabstrip

@@ -4,6 +4,6 @@ export * from './accommodation/HotelListItem';
 export * from './ThemeProvider';
 export * from './PrintContext';
 export * from './StackCard';
-export * from './additional/TaxiListItem';
+export * from './other/TaxiListItem';
 export * from './header/HeaderText';
 export * from './WithBackgroundColour';

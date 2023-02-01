@@ -11,9 +11,9 @@ import {
   useSmallerThan,
 } from '@wedding/hooks';
 import { Accommodation } from './sections/Accommodation';
-import { AdditionalInfo } from './sections/AdditionalInfo';
 import { Details } from './sections/Details';
 import { Header } from './sections/Header';
+import { OtherInformation } from './sections/OtherInformation';
 import { Photos } from './sections/Photos';
 import { Timings } from './sections/Timings';
 
@@ -21,7 +21,7 @@ const tabs = new Map([
   ['Details', Details],
   ['Timings', Timings],
   ['Accommodation', Accommodation],
-  ['Additional Info', AdditionalInfo],
+  ['Other Information', OtherInformation],
   ['Photos', Photos],
 ] as const);
 
