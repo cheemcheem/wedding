@@ -17,7 +17,7 @@ export const OtherInformation: React.FC = () => {
         </Text>
       </StackCard>
       <StackCard>
-        <H3 styleAs="h1">Photography</H3>
+        <H3 styleAs="h1">Photos</H3>
         <Text styleAs="h3">
           St Salvator's Chapel prohibits personal photography and videography
           during wedding ceremonies.
