@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSaveState } from '@wedding/hooks';
 import { Navigation, NavigationProps } from './Navigation';
 
@@ -12,10 +12,18 @@ export const useNavigation = <T extends string>(
   tabs: Map<T, React.FC>,
   defaultTab: T,
 ): NavigationAndActive<T> => {
-  const [activeTab, onActiveChange] = useSaveState<T>(
+  const [unvalidatedActiveTab, onActiveChange] = useSaveState<T>(
     'wedding-app-active-tab',
     defaultTab,
   );
+
+  const activeTab = useMemo(() => {
+    if (tabs.has(unvalidatedActiveTab)) {
+      return unvalidatedActiveTab;
+    }
+    onActiveChange(defaultTab);
+    return defaultTab;
+  }, [defaultTab, tabs, unvalidatedActiveTab, onActiveChange]);
 
   const value: NavigationProps<T> = {
     active: activeTab,

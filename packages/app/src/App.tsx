@@ -14,7 +14,7 @@ import { Accommodation } from './sections/Accommodation';
 import { Details } from './sections/Details';
 import { Header } from './sections/Header';
 import { OtherInformation } from './sections/OtherInformation';
-import { Photos } from './sections/Photos';
+import { Pictures } from './sections/Pictures';
 import { Timings } from './sections/Timings';
 
 const tabs = new Map([
@@ -22,11 +22,11 @@ const tabs = new Map([
   ['Timings', Timings],
   ['Accommodation', Accommodation],
   ['Other Information', OtherInformation],
-  ['Photos', Photos],
+  ['Pictures', Pictures],
 ] as const);
 
 const printTabs = new Map(
-  Array.from(tabs).filter(([name]) => name !== 'Photos'),
+  Array.from(tabs).filter(([name]) => name !== 'Pictures'),
 );
 
 function App(): JSX.Element {
