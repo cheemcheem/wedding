@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
+import { Navigation, NavigationProps } from '@wedding/components';
 import { useSaveState } from '@wedding/hooks';
-import { Navigation, NavigationProps } from './Navigation';
 
 type NavigationAndActive<T extends string> = {
   Navigation: React.FC;
