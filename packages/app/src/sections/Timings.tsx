@@ -58,7 +58,7 @@ export const Timings: React.FC = () => {
           <GridColumn<Timing>
             id="eventName"
             name="Event Name"
-            defaultWidth={200}
+            defaultWidth={300}
             getValue={({ eventName }) => eventName}
           />
         </Grid>
