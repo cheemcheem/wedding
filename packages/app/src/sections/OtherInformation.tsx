@@ -12,9 +12,7 @@ export const OtherInformation: React.FC = () => {
     <StackLayout>
       <StackCard>
         <H3 styleAs="h1">Dress Code</H3>
-        <Text styleAs="h3">
-          The wedding dress code is cocktail attire / semi&#8209;formal.
-        </Text>
+        <Text styleAs="h3">The wedding dress code is cocktail attire.</Text>
       </StackCard>
       <StackCard>
         <H3 styleAs="h1">Photography</H3>

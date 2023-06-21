@@ -10,7 +10,7 @@ export const Pictures: React.FC = () => (
       Coming Soon
     </H3>
     <H4 styleAs="h3" style={{ alignSelf: 'center', textAlign: 'center' }}>
-      Please check here after the wedding to see photographs from the day!
+      Please check here after the wedding to see photographs from the day.
     </H4>
   </StackCard>
 );
