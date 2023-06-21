@@ -1,8 +1,7 @@
 import React from 'react';
-import { StackLayout, StackLayoutProps } from '@salt-ds/core';
-import { Card, CardProps } from '@salt-ds/lab';
+import { Card, CardProps, StackLayout, StackLayoutProps } from '@salt-ds/core';
 
-type StackCardProps = Pick<StackLayoutProps, 'gap'> & CardProps;
+type StackCardProps = Pick<StackLayoutProps<'div'>, 'gap'> & CardProps;
 
 export const StackCard: React.FC<StackCardProps> = ({
   children,

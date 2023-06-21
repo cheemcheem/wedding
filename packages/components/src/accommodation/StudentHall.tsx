@@ -28,7 +28,10 @@ export const StudentHall: React.FC<StudentHallProps> = ({
 }) => {
   const { printMode } = useContext(PrintContext);
   return (
-    <AccordionSection expanded={printMode}>
+    <AccordionSection
+      expanded={printMode}
+      style={{ '--saltAccordion-section-borderStyle': 'none' }}
+    >
       {printMode || (
         <AccordionSummary>
           <FlowLayout align="center" style={{ height: '100%' }}>

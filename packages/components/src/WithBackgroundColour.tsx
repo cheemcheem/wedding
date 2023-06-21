@@ -20,7 +20,7 @@ const useBackgroundColour = (): void => {
     const backgroundColour = getCharacteristicValue(
       theme,
       'container',
-      'primary-background',
+      'secondary-background-disabled',
       document.body,
     );
     if (backgroundColour) {
@@ -32,7 +32,7 @@ const useBackgroundColour = (): void => {
         document.body.parentElement.style.backgroundColor = backgroundColour;
       }
     }
-  });
+  }, [mode, theme]);
 };
 
 export const WithBackgrounColour: React.FC<PropsWithChildren> = ({

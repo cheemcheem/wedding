@@ -23,8 +23,8 @@ export const Accommodation: React.FC = () => {
               'calc(100% + 2 * var(--saltCard-padding, calc(var(--salt-size-unit) * 3)))',
             marginLeft:
               'calc(-1 * var(--saltCard-padding, calc(var(--salt-size-unit) * 3)))',
-            marginBottom:
-              'calc(-1 * var(--saltCard-padding, calc(var(--salt-size-unit) * 3)))',
+            // marginBottom:
+            //   'calc(-1 * var(--saltCard-padding, calc(var(--salt-size-unit) * 3)))',
           }}
         >
           <StudentHalls>

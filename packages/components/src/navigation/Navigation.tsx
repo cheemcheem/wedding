@@ -1,4 +1,5 @@
 import React from 'react';
+import { StackLayout } from '@salt-ds/core';
 import { Tabstrip } from '@salt-ds/lab';
 import { useSmallMode } from '@wedding/hooks';
 import { DropDownNavigation } from './DropDownNavigation';
@@ -18,16 +19,18 @@ export const Navigation = <T extends string>({
   return smallMode ? (
     <DropDownNavigation {...{ active, locations, setActive }} />
   ) : (
-    <Tabstrip
-      defaultSource={keys}
-      centered
-      {...{
-        activeTabIndex: Array.from(locations)
-          .map(([name]) => name)
-          .indexOf(active),
-        onActiveChange: (index) => setActive(Array.from(locations)[index][0]),
-      }}
-      overflowMenu={false}
-    />
+    <StackLayout>
+      <Tabstrip
+        defaultSource={keys}
+        centered
+        {...{
+          activeTabIndex: Array.from(locations)
+            .map(([name]) => name)
+            .indexOf(active),
+          onActiveChange: (index) => setActive(Array.from(locations)[index][0]),
+        }}
+        overflowMenu={false}
+      />
+    </StackLayout>
   );
 };

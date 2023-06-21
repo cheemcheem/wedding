@@ -8,3 +8,5 @@ export * from './other/TaxiListItem';
 export * from './header/HeaderText';
 export * from './WithBackgroundColour';
 export * from './navigation/Navigation';
+export * from './timings/TextCell';
+export * from './timings/CenteredTextCell';

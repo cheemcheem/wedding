@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import { FlowLayout, StackLayout, useBreakpoints } from '@salt-ds/core';
-import { OrderedButton, Panel } from '@salt-ds/lab';
+import { FlowLayout, Panel, StackLayout, useBreakpoints } from '@salt-ds/core';
+import { OrderedButton } from '@salt-ds/lab';
 import { FontSizeContext, PrintContext } from '@wedding/components';
 import {
   smallModeBreakpoint,
@@ -60,7 +60,11 @@ function App(): JSX.Element {
     >
       <FlowLayout justify="center">
         <StackLayout style={{ width }} gap={0} align="center">
-          <Panel>
+          <Panel
+            style={{
+              background: 'var(--salt-container-secondary-background-disabled)',
+            }}
+          >
             <Header onClick={() => navigateTo('Details')} />
           </Panel>
           <Navigation />

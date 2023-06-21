@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { Button, H1, Text } from '@salt-ds/core';
+import { Button, H1, Panel, StackLayout, Text } from '@salt-ds/core';
 import { ChevronDownIcon } from '@salt-ds/icons';
-import { Dropdown, ListItem, Panel } from '@salt-ds/lab';
+import { Dropdown, ListItem } from '@salt-ds/lab';
 import { useMatchMediaQuery } from '@wedding/hooks';
 import { NavigationProps } from './NavigationProps';
 
@@ -27,9 +27,9 @@ export const DropDownNavigation = <T extends string>({
     return Component;
   }, [open]);
   return (
-    <>
+    <StackLayout gap={0}>
       <Panel>
-        <H1>{active}</H1>
+        <H1 styleAs="display2">{active}</H1>
       </Panel>
       <Panel
         variant={'secondary'}
@@ -78,6 +78,6 @@ export const DropDownNavigation = <T extends string>({
           width="100vw"
         />
       </Panel>
-    </>
+    </StackLayout>
   );
 };

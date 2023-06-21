@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, FlowLayout, Text } from '@salt-ds/core';
+import { Button, StackLayout, Text } from '@salt-ds/core';
 
 type HeaderProps = { onClick: () => void };
 
 export const Header: React.FC<HeaderProps> = ({ onClick }) => {
   return (
-    <FlowLayout align="center" justify="center" gap={0}>
+    <StackLayout>
       <Button
         variant="secondary"
         onClick={onClick}
@@ -31,6 +31,6 @@ export const Header: React.FC<HeaderProps> = ({ onClick }) => {
           Katharine & Kathan's Wedding
         </Text>
       </Button>
-    </FlowLayout>
+    </StackLayout>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { StackLayout } from '@salt-ds/core';
 import { Grid, GridColumn } from '@salt-ds/data-grid';
-import { PrintContext } from '@wedding/components';
+import { CenteredTextCell, PrintContext, TextCell } from '@wedding/components';
 import { Timing, timings } from '@wedding/data';
 import { useSmallMode } from '@wedding/hooks';
 
@@ -47,18 +47,21 @@ export const Timings: React.FC = () => {
             id="startTime"
             name="Start Time"
             defaultWidth={90}
+            cellValueComponent={CenteredTextCell}
             getValue={({ startTime }) => startTime}
           />
           <GridColumn<Timing>
             id="endTime"
             name="End Time"
             defaultWidth={90}
+            cellValueComponent={CenteredTextCell}
             getValue={({ endTime }) => endTime}
           />
           <GridColumn<Timing>
             id="eventName"
             name="Event Name"
             defaultWidth={300}
+            cellValueComponent={TextCell}
             getValue={({ eventName }) => eventName}
           />
         </Grid>

@@ -10,6 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 101vh;
+  --saltLink-color-active: var(--salt-color-blue-200);
 }
 
 code {
@@ -17,9 +18,10 @@ code {
     monospace;
 }
 
-.uitkLink.uitkText,
-.uitkLink.uitkText:visited {
-  color: var(--link-color-active, steelblue);
+.saltLink.saltText,
+.saltLink.saltText:visited {
+  --saltIcon-color: var(--saltLink-color-active);
+  color: var(--saltLink-color-active);
 }
 
 h1,

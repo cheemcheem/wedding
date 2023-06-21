@@ -1,6 +1,5 @@
 import React, { useCallback, useLayoutEffect } from 'react';
-import { H1, H2 } from '@salt-ds/core';
-import { Panel } from '@salt-ds/lab';
+import { H1, H2, Panel } from '@salt-ds/core';
 import { PrintContext } from '@wedding/components';
 import { createRoot } from 'react-dom/client';
 
