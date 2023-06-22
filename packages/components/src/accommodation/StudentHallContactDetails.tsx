@@ -22,16 +22,6 @@ export const StudentHallContactDetails: React.FC<
     <StackLayout gap={3}>
       <StackLayout gap={1}>
         <FlowLayout align="center" gap={1}>
-          <CallSolidIcon
-            style={{
-              '--icon-color': 'var(--salt-palette-success-foreground, green)',
-            }}
-          />
-          <Text>
-            <PrintLink prefix="tel:" href={telephone} />
-          </Text>
-        </FlowLayout>
-        <FlowLayout align="center" gap={1}>
           <GlobeSolidIcon
             style={{
               '--icon-color': 'var(--salt-palette-info-foreground, steelblue)',
@@ -51,6 +41,16 @@ export const StudentHallContactDetails: React.FC<
             <PrintLink prefix="mailto:" href={email} />
           </Text>
         </FlexLayout>
+        <FlowLayout align="center" gap={1}>
+          <CallSolidIcon
+            style={{
+              '--icon-color': 'var(--salt-palette-success-foreground, green)',
+            }}
+          />
+          <Text>
+            <PrintLink prefix="tel:" href={telephone} />
+          </Text>
+        </FlowLayout>
         {printMode && <br />}
       </StackLayout>
     </StackLayout>

@@ -29,7 +29,7 @@ export const halls: StudentHallProps[] = [
         ],
         subtitle: 'Apartment of 5 bedrooms for 2 nights',
         price: 365,
-        title: 'Occupancy for 5 to 10 people',
+        title: 'Occupancy for up to 10 people',
       },
     ],
     telephone: '01334467100',
