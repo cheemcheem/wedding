@@ -31,6 +31,16 @@ export const StudentHallContactDetails: React.FC<
             <PrintLink prefix="tel:" href={telephone} />
           </Text>
         </FlowLayout>
+        <FlowLayout align="center" gap={1}>
+          <GlobeSolidIcon
+            style={{
+              '--icon-color': 'var(--salt-palette-info-foreground, steelblue)',
+            }}
+          />
+          <Text>
+            <PrintLink href={website} target="_blank" />
+          </Text>
+        </FlowLayout>
         <FlexLayout align="center" gap={1} wrap={false}>
           <MessageSolidIcon
             style={{
@@ -41,17 +51,7 @@ export const StudentHallContactDetails: React.FC<
             <PrintLink prefix="mailto:" href={email} />
           </Text>
         </FlexLayout>
-        <FlowLayout align="center" gap={1}>
-          <GlobeSolidIcon
-            style={{
-              '--icon-color': 'var(--salt-palette-info-foreground, steelblue)',
-            }}
-          />
-          <Text>
-            <PrintLink href={website} target="_blank" />
-          </Text>
-          {printMode && <br />}
-        </FlowLayout>
+        {printMode && <br />}
       </StackLayout>
     </StackLayout>
   );

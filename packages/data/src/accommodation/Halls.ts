@@ -34,7 +34,7 @@ export const halls: StudentHallProps[] = [
     ],
     telephone: '01334467100',
     website:
-      'https://ace.st-andrews.ac.uk/accommodation/david-russell-apartments',
+      'https://www.st-andrews.ac.uk/accommodation-conferences-events/accommodation/david-russell-apartments/',
   },
   {
     email: 'agnes.blackadder@st-andrews.ac.uk',
@@ -60,6 +60,7 @@ export const halls: StudentHallProps[] = [
       },
     ],
     telephone: '01334467000',
-    website: 'https://ace.st-andrews.ac.uk/accommodation/agnes-blackadder-hall',
+    website:
+      'https://www.st-andrews.ac.uk/accommodation-conferences-events/accommodation/agnes-blackadder-hall/',
   },
 ];
