@@ -1,16 +1,15 @@
 import React from 'react';
-import { H3, H4 } from '@salt-ds/core';
-import { ContentStatus } from '@salt-ds/lab';
+import { Link, Text } from '@salt-ds/core';
 import { StackCard } from '@wedding/components';
 
+const picturesUrl =
+  'https://gallery.andi-watson.co.uk/-katharinekathan/gallery?inviteToken=AAAAAFcAAABuZoHB95YvSfE';
+
 export const Pictures: React.FC = () => (
-  <StackCard>
-    <ContentStatus status="warning" />
-    <H3 styleAs="h1" style={{ alignSelf: 'center' }}>
-      Coming Soon
-    </H3>
-    <H4 styleAs="h3" style={{ alignSelf: 'center', textAlign: 'center' }}>
-      Please check here after the wedding to see photographs from the day.
-    </H4>
+  <StackCard style={{ height: '100%' }}>
+    <Text style={{ textAlign: 'center' }}>
+      Photos of our wedding day can be viewed at the following link:{' '}
+      <Link href={picturesUrl}>wedding photos</Link>.
+    </Text>
   </StackCard>
 );
